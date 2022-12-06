@@ -1,0 +1,285 @@
+<script>
+  gtag("event", "page_view", {
+    send_to: "AW-1052636102",
+    ecomm_pagetype: "product",
+    ecomm_prodid: "{URUN_ID}",
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(".secenekAdi").html("<span>Yatak Ölçüsü Seçiniz</span>");
+  });
+</script>
+
+<!--Costumer Images Modal-->
+<div id="myModal" class="modal" onclick="closeModal()">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+
+
+<script>
+  $(document).ready(function () {
+    /*
+    if ($("#IlgiliUrunDiv").length > 0) {
+      var ilgiliUrunBlock = document.getElementById("IlgiliUrunDiv");
+      var topListBlock = document.getElementsByClassName("TopList")[0];
+      topListBlock.appendChild(ilgiliUrunBlock);
+    }
+
+    const sourceLinkListBlock = document.getElementsByClassName("ItemV3_Name");
+    const targetLinkListBlock = document.getElementsByClassName("ItemV3_col1");
+    for (let i = 0; i < sourceLinkListBlock.length; i++) {
+      var sourceLink = sourceLinkListBlock[i].getElementsByTagName("a")[0].getAttribute("href");
+      var targetLink = targetLinkListBlock[i].getElementsByClassName("productImage")[0].getElementsByTagName("a")[0];
+      targetLink.setAttribute("href", sourceLink);
+    }
+    */
+
+
+    /*
+    const productImageList = document.getElementsByClassName("AltImgCapSmallImg");
+    var lastImageBlock = productImageList[productImageList.length - 1]
+    var lastImage = productImageList[productImageList.length - 1].getElementsByTagName("img")[0].getAttribute("src");
+    
+    $("#ProductDetailMain").append('<img class="customerImage" src=' + lastImage + '>');
+
+    console.log(lastImage);
+    */
+
+    /*****Sosyal Medya Görselleri*****/
+    if (windowidth < 768) {
+      var productImageListBlockMain = $(".owl-stage")[0]
+      const productImageListBlock = $(".owl-item");
+      const productImageList = $(".owl-item .lightItem img");
+      const buttonBlock = $(".owl-dot");
+      $("#ProductDetailMain").append('<div class="customerImageBlock"><div class="customerImagesTag"><span>Tarzını Paylaş</span></div><div class="customerImages"></div></div>');
+
+      k = 0;
+
+      for(let i = 0; i < productImageList.length; i++) {
+        if(productImageList[i].getAttribute("alt") === "sosyalmedya"){
+          k = k + productImageListBlock[i].offsetWidth;
+          imageSrc = productImageList[i].getAttribute("src");
+          productImageListBlock[i].style = "display: none!important;";
+          productImageListBlock[i].remove();
+          buttonBlock[i].style.display = "none";
+          $(".customerImages").append('<img class="customerImage customerImageMobil" src=' + imageSrc + '>');
+        };
+      };
+      newWidth = productImageListBlockMain.offsetWidth - k;
+      productImageListBlockMain.style.width = newWidth + "px";
+
+      /*var newImageSlider = $(".mobileImageSlider.owl-loaded.owl-carousel.owl-drag").clone(true);
+      $("#ProductDetailMain").append(newImageSlider);*/
+      
+
+    } else {
+      const productImageListBlock = $(".AltImgCapSmallImg");
+      const productImageList = $(".AltImgCapSmallImg img");
+      $("#ProductDetailMain").append('<div class="customerImageBlock"><div class="customerImagesTag"><span>Tarzını Paylaş</span></div><div class="customerImages"></div></div>');
+
+      for(let i = 0; i < productImageList.length; i++) {
+        if(productImageList[i].getAttribute("alt") === "sosyalmedya"){
+          var imageSrc = productImageList[i].getAttribute("src");
+          var imageZoomSrcGet = productImageList[i].dataset.cloudzoom;
+          var imageZoomSrc = JSON.parse(imageZoomSrcGet);
+          productImageListBlock[i].remove();
+          var zoomImageJSON = { "easeTime" : 0 , "galleryFade" : false, "animationTime" : 0, "useZoom" : "#imgUrunResim" , "image" : imageSrc, "zoomImage" : imageSrc };
+          var zoomImageJSON = {"easeTime" : 0 , "galleryFade" : false,"animationTime" : 0 , "zoomImage": imageZoomSrc["image"], "zoomSizeMode" : 'image' , "zoomPosition": "inside", "zoomOffsetX":0, "image" : imageZoomSrc["image"]};
+         
+          $(".customerImages").append('<img class="customerImage cloudzoom imageZoomPreview" id="imgUrunResim" src=' + imageSrc + ' data-cloudzoom= ' + JSON.stringify(zoomImageJSON) + '>');
+          
+
+        };
+      };
+      
+    };
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = $(".customerImage");
+    var imgMobil = $(".customerImageMobil");
+    if(img.length === 0){
+      $(".customerImageBlock").remove();
+    };
+    
+    for(let i = 0; i < img.length; i++){
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+      
+      img[i].onclick = function(){
+        modal.style.display = "block";
+        var modalImageZoomSrcGet = this.dataset.cloudzoom;
+        var modalImageZoomSrc = JSON.parse(modalImageZoomSrcGet);
+        modalImg.src = modalImageZoomSrc["zoomImage"];
+        captionText.innerHTML = this.alt;
+      };
+    };
+
+    for(let i = 0; i < imgMobil.length; i++){
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+      
+      imgMobil[i].onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      };
+    };
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    closeModal = function() { 
+      modal.style.display = "none";
+    }
+    
+    /*onclick="window.zoom.V1.clickPreviweImage()"*/
+
+    /*****Ürün Puan Düzenlemesi*****/
+    var productPoint = $(".PuanVerSag")[0].innerHTML;
+    $(".PuanVerSag")[0].innerHTML = productPoint[0] + productPoint[1] + productPoint[2] + productPoint[3];
+    if (productPoint[1] === "0") {
+      $(".PuanVerSag")[0].style = "display: none;";
+    };
+
+
+    //var ozelAlan4 = document.getElementById("divOzelAlan4");
+    //var topListBlock = document.getElementsByClassName("TopList")[0];
+    //topListBlock.insertBefore(ozelAlan4, topListBlock.children[4]);
+
+    /*****Tahmini Teslim Gün Düzenlemesi*****/
+    var tahminiTeslim = $("#spnTahminiTeslimSuresi");
+    if (tahminiTeslim[0].innerHTML === "30 Gün"){
+      tahminiTeslim[0].innerHTML = "<a href='/teslimat' target='_blank' style='color:#000; text-decoration: underline;'>30 Gün</a>";
+    };
+
+    /*****Teknik Detay Tablosu*****/
+    /*$(".ProductDetailMainRow").append($(".teknikDetay")[0]);*/
+
+
+    
+
+
+
+
+  });
+</script>
+
+<style>
+  .detayBottom #divOzelAlan4{display: none;}
+  #divOzelAlan4{float: left;text-align: center;border-radius: 5px;margin: 5px;background: #fff6e0; position: unset; top:0; height: 100%; padding: 7px 11px;}
+  #divOzelAlan4 .left_line{clear: left;line-height: 16px;color: #f67710;font-family: brandon_textmedium;margin-bottom: 5px;}
+  #divOzelAlan4 .right_line{display: inline-block;vertical-align: top;color: #181516;font-size: 14px;font-family: brandon_textmedium;line-height: 16px;}
+  .KatSepetFiyat .sptPrice{font-size: 20px;}
+  /*****Customer Images Slider Version*****/
+  .customerImageBlock{width: 100%; display: block;}
+  .customerImagesTag{padding: 20px 0; text-align: center;}
+  .customerImagesTag span{font-size: xx-large;}
+  /*.customerImages{display: flex; justify-content: space-between; gap: 20px; overflow: auto; margin-bottom: 50px;}*/
+  /*****Customer Images List Version*****/
+  .customerImages{display: list-item; margin-bottom: 50px; list-style: none; width: 100%; text-align: center;}
+  .customerImages img{display: inline; border: none; width: 300px; margin-right: 10px; margin-bottom: 10px; height: 400px;}
+
+  @media screen and (max-width: 768px){
+    .searchClick{left: 70px;}
+    #logo .logo{width: 150px;}
+    .KatSepetFiyat .sptPrice{font-size: 16px;}
+  }
+
+
+
+
+
+
+  #imgUrunResimm:hover {opacity: 0.7;}
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+
+  /* Modal Content (image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-height: 90%;
+  }
+
+  /* Caption of Modal Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+
+  /* Add Animation */
+  .modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 768px){
+    .modal-content {
+      width: 100%;
+    }
+  }
+</style>
+
+
+<!--<span class="left_line lineTitle">Hızlı</span><br><span class="right_line">Teslimat</span>-->
+
+

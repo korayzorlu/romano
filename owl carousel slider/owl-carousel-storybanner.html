@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Carousel</title>
+
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      
+      body{margin: 0;}
+      .storyArea.catStory{background: #f7f7f7;margin: 0 0 20px; width: 100%;float: left;padding: 20px 0;}
+      .rocat-carousel-wrap {padding: 10px;width: 100%;max-width: 1410px; position: relative;cursor: pointer; margin-left: auto; margin-right: auto; pointer-events: none;}
+      .rocat-carousel-wrap .owl-carousel.rocat{display: flex; align-items: center; pointer-events: auto;}
+      /*.rocat-carousel-wrap .owl-item{max-width: 150px;}*/
+      /* fix blank or flashing items on carousel */
+      .rocat-carousel-wrap .owl-carousel.rocat .item.rocat {position: relative;z-index: 100; -webkit-backface-visibility: hidden; }
+      .rocat-carousel-wrap .owl-carousel.rocat .item.rocat img{scale: 0.7;}
+      /* end fix */
+      .rocat-carousel-wrap .owl-nav {width: 100%; justify-content: space-between; margin-top: 0;position: absolute;top: 40%;color: #000; left: auto; display: flex!important;}
+      .rocat-carousel-wrap .owl-nav i {font-size: 15px;font-weight: 400;}
+      .rocat-carousel-wrap .owl-carousel.rocat .owl-nav .owl-prev {padding: 8px 13px!important;border-radius: 50%; left: -40px; position: absolute;}
+      .rocat-carousel-wrap .owl-carousel.rocat .owl-nav .owl-next {padding: 8px 13px!important;border-radius: 50%; right: -40px; position: absolute;}
+      .storyArea.catStory .rocat-carousel-wrap .owl-carousel.rocat .item.rocat span{font-size: 13px; font-weight: 600;width: 100%;color: #181516;display: flex;text-align: center;justify-content: center;padding-top: 10px;}
+      @media screen and (max-width: 768px){
+        .storyArea.catStory .rocat-carousel-wrap .owl-carousel.rocat .item.rocat span{font-size: 10px;}
+        .rocat-carousel-wrap .owl-nav{display: none;}
+      }
+      
+          
+    </style>
+    <div class="storyArea mainPageOwl">
+      <div class="rocat-carousel-wrap">
+        <div class="owl-carousel rocat">
+          <div class="item rocat"><a href="/kanepeler"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-kanepe-ikili2.png" /></a><span>Kanepeler</span></div>
+          <div class="item rocat"><a href="/koltuklar"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-koltuk2.png" /></a><span>Koltuklar</span></div>
+          <div class="item rocat"><a href="/deri-koltuk"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-kanepe-deri.png" /></a><span>Deri Koltuklar</span></div>
+          <div class="item rocat"><a href="/tv-unitesi"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-tv3.png" /></a><span>Tv Üniteleri</span></div>
+          <div class="item rocat"><a href="/calisma-masasi"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-masa-calisma2.png" /></a><span>Çalışma Masası</span></div>
+          <div class="item rocat"><a href="/karyola"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-karyola2.png" /></a><span>Karyola</span></div>
+          <div class="item rocat"><a href="/yemek-masasi"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-masa-yemek2.png" /></a><span>Yemek Masası</span></div>
+          <div class="item rocat"><a href="/ayakkabilik"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-ayakkabilik2.png" /></a><span>Ayakkabılık</span></div>
+          <div class="item rocat"><a href="/yonetici-koltugu"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-koltuk-yonetici2.png" /></a><span>Yönetici Koltuğu</span></div>
+          <div class="item rocat"><a href="/gardirop"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-gardirop2.png" /></a><span>Gardıroplar</span></div>
+          <div class="item rocat"><a href="/kitaplik"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-kitaplik.png" /></a><span>Kitaplıklar</span></div>
+          <div class="item rocat"><a href="/puf"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-puf2.png" /></a><span>Puflar</span></div>
+          <div class="item rocat"><a href="/komodin"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-komodin.png" /></a><span>Komodinler</span></div>
+          <div class="item rocat"><a href="/sifonyer"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/kategori-icon-sifonyer.png" /></a><span>Şifonyerler</span></div>
+        </div>
+      </div>
+    </div>
+      <script>
+        
+        $(".rocat-carousel-wrap .owl-carousel.rocat").owlCarousel({
+          loop: false,
+          margin: 10,
+          nav: true,
+          animateOut: 'slideOutDown',
+          animateIn: 'flipInX',
+          dragBeforeAnimFinish: false,
+          navText: [
+              '<i class="fal fa-chevron-left"></i>',
+            '<i class="fal fa-chevron-right"></i>'
+          ],
+          autoplay: false,
+          autoplayHoverPause: false,
+          responsive: {
+            0: {
+              items: 4
+            },
+            600: {
+              items: 4
+            },
+            1000: {
+              items: 8
+            }
+          }
+        });
+          $(".menuBottom").prepend($(".rocat-carousel-wrap"));
+      </script>
+
+      <div class="storyArea">
+        <ul>
+            <li><a href="/kose-kanepe"><img src="/Uploads/EditorUploads/kose-kanepe-new1.png" /> </a> <span>Köşe Kanepe</span></li>
+            <li><a href="/yatakli-kanepe"><img src="/Uploads/EditorUploads/yatakli-kanepeler-new1.png" /> </a> <span>Yataklı Kanepe</span></li>
+            <li><a href="/uclu-kanepe"><img src="/Uploads/EditorUploads/uclu-kanepeler-new1.png" /> </a> <span>Üçlü Kanepe</span></li>
+            <li><a href="/ikili-kanepe"><img src="/Uploads/EditorUploads/ikili-kanepe-new1.png" /> </a> <span>İkili Kanepe</span></li>
+            <li><a href="/deri-kanepe"><img src="/Uploads/EditorUploads/deri-kanepeler-new1.png" /></a> <span>Deri Kanepe</span></li>
+        </ul>
+        </div>
+        
+</body>
+</html>
+
+

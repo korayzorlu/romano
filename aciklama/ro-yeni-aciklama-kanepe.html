@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açıklama</title>
+</head>
+<body>
+
+    <style>
+        @font-face {
+        font-family: "BrandonTextWeb-Regular";
+        src: url("http://db.onlinewebfonts.com/t/47b83f8dbd3bf93e0df5674b32c6a7e4.eot"); /* IE9*/
+        src: url("http://db.onlinewebfonts.com/t/47b83f8dbd3bf93e0df5674b32c6a7e4.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("http://db.onlinewebfonts.com/t/47b83f8dbd3bf93e0df5674b32c6a7e4.woff2") format("woff2"), /* chrome firefox */
+        url("http://db.onlinewebfonts.com/t/47b83f8dbd3bf93e0df5674b32c6a7e4.woff") format("woff"), /* chrome firefox */
+        url("http://db.onlinewebfonts.com/t/47b83f8dbd3bf93e0df5674b32c6a7e4.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+        url("http://db.onlinewebfonts.com/t/47b83f8dbd3bf93e0df5674b32c6a7e4.svg#BrandonTextWeb-Regular") format("svg"); /* iOS 4.1- */
+        }
+        @font-face {
+        font-family: "BrandonTextW01-Bold";
+        src: url("http://db.onlinewebfonts.com/t/b67dd0e7123c050baf059b5ce8ebc665.eot"); /* IE9*/
+        src: url("http://db.onlinewebfonts.com/t/b67dd0e7123c050baf059b5ce8ebc665.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("http://db.onlinewebfonts.com/t/b67dd0e7123c050baf059b5ce8ebc665.woff2") format("woff2"), /* chrome firefox */
+        url("http://db.onlinewebfonts.com/t/b67dd0e7123c050baf059b5ce8ebc665.woff") format("woff"), /* chrome firefox */
+        url("http://db.onlinewebfonts.com/t/b67dd0e7123c050baf059b5ce8ebc665.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+        url("http://db.onlinewebfonts.com/t/b67dd0e7123c050baf059b5ce8ebc665.svg#BrandonTextW01-Bold  rel= stylesheet  type= text/css") format("svg"); /* iOS 4.1- */
+        }
+        body{display: flex; justify-content: center; width: 100%;margin: 0; padding: 0; font-family: BrandonTextWeb-Regular!important;}
+        .ticiContainer{max-width: 1410px;margin: 0;}
+        .urunOzelliklerBolumu{width: 100%;}
+        .urunOzelliklerBolumu > span,.urunOzellikImgTxtBox > span {color: #181516;font-size: 25px;text-align: center;display: block;font-family: BrandonTextW01-Bold!important;	}
+        .urunOzelliklerBolumu > small,.urunOzellikImgTxtBox > small {display: block;text-align: center;font-size: 18px;line-height: 25px;max-width: 415px;margin: 20px auto;}
+        .urunOzellikImgFull img {width: 100%;}
+        .urunOzellikIcons {display: flex;align-items: center;justify-content: space-evenly;text-align: center;margin: 80px auto;width: 100%;float: left;padding: 0;}
+        .urunOzellikIcons span{flex-direction: column; display: flex;}
+        .urunOzellikIcons img {width: 120px;margin: 0px auto 20px;}
+        .urunOzellikIcons small {color: #181516;font-size: 18px;}
+        .urunOzellikTxtImg .urunOzellikImg {width: 50%;float: left;}
+        .urunOzellikTxtImg .urunOzellikImg img{width: 685px; border: 1px solid;}
+        .urunOzellikTxtImg .urunOzellikTxt {width: 50%;float: left;padding: 35px 0;padding-right: 0px;	}	
+        .urunOzellikTxt span {color: #181516;font-size: 28px;line-height: 36px;font-family: BrandonTextW01-Bold!important;}
+        .urunOzellikTxt li {list-style: disc !important;color: #181516;margin-bottom: 15px !important;font-size: 24px;}
+        .urunOzellikTxt ul {padding: 30px 20px;}
+        .urunOzellikTxtImg {float: left;clear: both;	}
+        .urunOzellikImgs {float: left;width: calc(100% + 80px);display: flex;justify-content: center;margin: 0 -40px;	}
+        .urunOzellikImgs span {padding: 0 40px;	}
+        .urunOzellikImgs span img {width: 403px; border: 1px solid #e8e8e8;}
+        .urunOzellikImgs span small {color: #181516;font-size: 22px;margin-top: 15px;display: block;	}
+        .urunOzellikImgs.ikili {margin-top: 80px;}
+        .urunOzellikImgs.ikili span {display: flex; flex-direction: column; align-items: center;}
+        .urunOzellikImgs.ikili span img {border-radius: 50%;}
+        .urunOzellikImgs.ikili span strong {font-size: 20px; max-width: 250px; text-align: center; margin-top: 10px;}
+        .urunOzellikImgs.ikili span small {font-size: 16px; max-width: 250px;}
+        .urunOzellikImgs.dortlu span strong {font-size: 20px; max-width: 250px;}
+        .urunOzellikImgs.dortlu span small {font-size: 16px; max-width: 250px;}
+        .urunOzellikImgTxtBox img {max-width: 550px !important;width: 100%;margin: 30px auto;}
+        .urunOzellikImgTxtBox {float: left;width: 100%;margin: 80px 0 0; text-align: center;}
+        .urunOzellikInfo span { display: block; text-align: center; font-size: 48px; color: #000;}
+        .urunOzellikInfo small {display: block;text-align: center;font-size: 19px;padding: 10px 0;}
+        .urunOzellikInfo small a{text-decoration: none; font-weight: 600; color: #000;}
+        .urunOzellikInfo p {display: block;text-align: center;font-size: 13px;}
+        .urunOzellikInfo {float: left; width: 100%; text-align: center;}
+        .malzemeBaslik{margin-bottom: 20px;}
+        
+
+        @media screen and (max-width: 768px){
+            .urunOzellikTxtImg .urunOzellikTxt {width: 100%;padding: 0 0 20px;}
+            .urunOzellikTxtImg .urunOzellikImg {width: 100%;}
+            .urunOzellikImgs span {padding: 0 5px;}
+            .urunOzellikImgs.dortlu span strong {font-size: 14px; max-width: none;}
+    	    .urunOzellikImgs.dortlu span small {font-size: 10px; max-width: none;}
+            .urunOzellikIcons span {padding: 10px;}
+            .urunOzellikIcons {	padding: 0;	margin: 20px auto;}
+            .urunOzellikImgs {width: 100%;margin: 0;}
+            .urunOzellikImgs.dortlu {display: grid; grid-template-columns: 1fr 1fr;}
+            .urunOzelliklerBolumu > span, .urunOzellikImgTxtBox > span,.urunOzellikTxt span {font-size: 20px;}
+            .urunOzelliklerBolumu > small, .urunOzellikImgTxtBox > small {font-size: 16px;}
+            .urunOzellikIcons small {font-size: 14px;}
+            .urunOzellikTxt li {font-size: 15px;}
+            .urunOzellikImgs span small {font-size: 13px;}
+            .urunOzellikInfo span {font-size: 30px;}
+            .urunOzellikInfo small {font-size: 17px;}
+        }
+    </style>
+
+    <div class="ticiContainer">
+        <div class="urunOzelliklerBolumu">
+            <span>Odanıza Uygun Ölçüler</span>
+            <small>Odanıza uygun bir çok farklı ölçü seçeneği ve modüler yapı sayesinde ihtiyacınıza tam uyum sağlayan alternatifler!</small>
+            <div class="urunOzellikImgFull">
+                <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN.jpg" />
+            </div>
+            
+            <div class="urunOzellikIcons">
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN2.jpg" />
+                    <small>Robot Süpürgeye Uygun</small>
+                </span>
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN3.jpg" />
+                    <small>Kurulum Gerektirmez</small>
+                </span>
+            </div>
+            
+            <div class="urunOzellikTxtImg">
+                <div class="urunOzellikTxt">
+                    <span>Extra Konfor Grubu “ MULTIFLEKS® ” Sünger</span>
+                
+                <ul>
+                    <li>Mobilya ve yatak ürünlerinde ekstra konfor ve esneklik sağlar.</li>
+                    <li>%100 saf sünger (Mobilya sektöründe kullanılan katkı maddelerini içermez).</li>
+                    <li>Yatak olarak kullanıldığında vücut ısısı ile yumuşar</li>
+                    <li>Hücre yapısı düzenli ve stabildir</li>
+                    <li>Oturma ünitelerinde yüksek konfor sağlar.</li>
+                    <li>Çökme yapmaz, zamanla formunu kaybetmez.</li>
+                    <li>Yüksek yük taşıma kapasitelidir. Yoğun trafikli ticari alanlara uygundur</li>
+                    <li>Isı kontrolü dengesi için hava geçirgenliği maksimum düzeydedir.</li>
+                    <li>Fizyolojik rahatklığınıza olumlu etki eder.</li>
+                </ul>
+                </div>
+                
+                <div class="urunOzellikImg">
+                    <img src="images/sunger2.jpg" />
+                </div>
+            </div>
+            
+            <div class="urunOzellikIcons">
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN5.jpg" />
+                    <small>Katkısız</small>
+                </span>
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN6.jpg" />
+                    <small>Anti-Bakteriyel</small>
+                </span>
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN7.jpg" />
+                    <small>Kokusuz</small>
+                </span>
+            </div>
+            
+            <div class="urunOzellikImgs">
+                <span>
+                    <img src="images/hava2.jpg" />
+                    <small>Maksimum hava geçirgenliği</small>
+                </span>
+                <span>
+                    <img src="images/yuk2.jpg" />
+                    <small>Yüksek taşıma kapasitesi</small>
+                </span>
+                <span>
+                    <img src="images/konfor2.jpg" />
+                    <small>Konfor teknolojisi</small>
+                </span>
+            </div>
+            
+            <div class="urunOzellikImgTxtBox">
+                <span>Yüzlerce Kumaş ve Renk Seçeneği</span>
+                <small>Romano® ‘nun sonsuz renk seçenekleri ile yaşam alanınızı zevkinize göre tasarlayın!</small>
+                <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN11.jpg" />
+            </div>
+            
+            <div class="urunOzellikImgTxtBox">
+                <span>Kolay Temizlenebilir Kumaş Teknolojisi</span>
+                <small>Kumaşlar yüzeyinde oluşan çay, kahve vb. lekelere karşı kolay temizlenebilme özelliğine sahiptir.</small>
+                <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN12.jpg" />
+            </div>
+            
+            <div class="urunOzellikIcons">
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN13.jpg" />
+                    <small>Su İtici Kumaş Özelliğ</small>
+                </span>
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN14.jpg" />
+                    <small>Evcil Hayvan Dostu</small>
+                </span>
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/ozellikGorselN15.jpg" />
+                    <small>Leke Tutmazlık Apresi</small>
+                </span>
+            </div>
+            
+            <div class="urunOzellikImgTxtBox malzemeBaslik">
+                <span>Üst Seviye İşçilik</span>
+            </div>
+
+            <div class="urunOzellikImgs ikili">
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/dikis1.jpg" />
+                    <strong>Yüksek Dikiş Kalitesi</strong>
+                    <small>Mükemmel dikiş kalitesi ve dayanıklılık ile karakterize edilen kumaşlara sahiptir.</small>
+                </span>
+                <span>
+                    <img src="https://www.romanodizayn.com/Uploads/EditorUploads/dikis2.jpg" />
+                    <strong>Kanıtlanmış Teknoloji</strong>
+                    <small>Dayanıklı çift kilit dikiş teknolojisi ile en güvenilir ve en sağlam performansa sahiptir.</small>
+                </span>
+            </div>
+
+            <!--
+            <div class="urunOzellikInfo">
+                <span>Odanıza Uygun Ölçüler</span>
+                <small>Antropometrik Tasarımlar</small>
+                <p>Dolgun ve gösterişli, ayarlanabilir bir yatak mekanizması. Zamanla formunu kaybetmez. Ergonomik olarak tasarlanmıştır.</p>
+                <img src="https://www.romanodizayn.com/Uploads/UrunResimleri/yatakli-kanepe-rmn-1138-8b81.jpg" />
+            </div>
+            -->
+
+            <div class="urunOzellikImgTxtBox">
+                <span>Katınıza kadar randevulu teslimat</span>
+                <small>Randevu tarihinize ve saatinize uygun olarak ürünleriniz planlı ve sorunsuz olarak adresinize teslim edilir.</small>
+                <img src="images/koltuk-teslimat1.jpg" />
+            </div>
+
+            <div class="urunOzellikInfo">
+                <small>Teslimat süreciyle ilgili tüm detaylara <a href="/teslimat">Teslimat</a> sayfamızdan ulaşabilirsiniz.</small>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+    

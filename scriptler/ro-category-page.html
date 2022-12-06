@@ -1,0 +1,127 @@
+
+
+<script>
+    //$(".ticiTopBlockContent").append($(".storyArea.catStory.ss"));
+    $(document).ready(function () {
+      //$(".ticiTopBlockContent").append($(".storyArea.catStory.ss"));
+      //setTimeout($(".ticiTopBlockContent").append($(".storyArea.catStory.ss")),1500);
+      var productPoints = $(".productPoints");
+      var productDetail = $(".productDetail");
+      //productDetail.insertBefore(productPoints, productDetail.children[1]);
+
+      for (let i = 0; i < productPoints.length; i++){
+          if ($(".rating")[i].dataset.rating > 0){
+              $(".productPoints")[i].innerHTML += "<div class='productPointIn'> ("+ $(".rating")[i].dataset.rating + ")</div>";
+          } else{
+              $(".productPoints")[i].style = "visibility: hidden;";
+          };
+          
+      };
+      /*****Ürün Listede Tek Ürün*****/
+      /*
+      if (windowidth < 768) { 
+          var privateProductOrj = $(".ItemOrj")[4];
+          privateProductOrj.className = "privateOrj"
+          privateProductOrj.style = "width: 100%; max-width: 100%;"
+
+          //var privateProductItem = $(".productItem")[4];
+          //privateProductItem.style = "width: 127%;"
+
+      } ;*/
+      
+      /***** Cat. Story Area *****/
+      $(".rocat-carousel-wrap .owl-carousel.rocat").owlCarousel({
+          loop: false,
+          margin: 10,
+          nav: true,
+          navText: [
+              '<i class="fal fa-chevron-left"></i>',
+            '<i class="fal fa-chevron-right"></i>'
+          ],
+          autoplay: false,
+          autoplayHoverPause: false,
+          responsive: {
+            0: {
+              items: 4
+            },
+            600: {
+              items: 4
+            },
+            1000: {
+              items: 8
+            }
+          }
+        });
+        /*
+      if(windowidth > 1041){
+        const subCategories = $(".list-group.kategori li ul li ul li a");
+        $(".sortingContent").append("<div class='subCategoriesBlock'</div>");
+        for(let i = 0; i < subCategories.length / 2; i++){
+          console.log(subCategories[i].textContent);
+          $(".subCategoriesBlock").append(subCategories[i]);
+        };
+      };*/
+
+      /////TAG DEĞİŞTİRME/////
+      (function( $ ) {
+        $.fn.replaceTag = function(newTag) {
+          var originalElement = this[0]
+          , originalTag = originalElement.tagName
+          , startRX = new RegExp('^<'+originalTag, 'i')
+          , endRX = new RegExp(originalTag+'>$', 'i')
+          , startSubst = '<'+newTag
+          , endSubst = newTag+'>'
+          , newHTML = originalElement.outerHTML
+          .replace(startRX, startSubst)
+          .replace(endRX, endSubst);
+          this.replaceWith(newHTML);
+        };
+      })(jQuery);
+
+      /////ÜRÜN KARTINA LİNK EKLEME/////
+      const productLinkBlock = $(".detailLink.detailUrl");
+      const productItemBlock = $(".productDetail");
+      for(let i = 0; i < productLinkBlock.length; i++){
+        var productLink = productLinkBlock[i].getAttribute("href");
+        productItemBlock[i].setAttribute("onclick", "window.location='"+ productLink +"'");
+      };
+          
+
+          
+          
+
+    });
+
+    
+</script>
+
+<style>
+    
+    .productPointIn{float: left; font-size: 11px; color: grey; line-height: 1;}
+    .subCategoriesBlock{/*display: inline-block;*/display: flex; /*justify-content: space-evenly;*/justify-content: flex-start; height: 100%; line-height: 40px; margin-bottom: 15px; gap: 10px;}
+    .subCategoriesBlock a{line-height: 15px; padding: 10px; /*margin: 0 10px;*/ color: #000; border: 1px solid #e8e8e8; border-radius: 10px; display: inline-block; /*background: #ffd992;*/}
+    .subCategoriesBlock a:hover{border-color: #f67710; transition: .2s ease-in-out;}
+    .panel.panel-default.vertical-filter-panel.div-kategori.div-kategori-59div-kategori{display: none;}
+    @media screen and (max-width: 1041px){
+      .subCategoriesBlock{margin-bottom: 0; padding: 0; padding-bottom: 5px;}
+      .subCategoriesBlock a{/*padding: 5px 10px;*/ padding: 0; margin: 0 5px; font-size: 12px; line-height: inherit; height: 40px; align-items: center; text-align: center; display: block;}
+      .panel.panel-default.vertical-filter-panel.div-kategori.div-kategori-59div-kategori{display: block;}
+      .storyArea.catStory{margin: 0;}
+    }
+    @media screen and (max-width: 768px){
+        #divIcerik{margin: 0;}
+        body{padding: 0!important;}
+        .categoryTitleText{display: none;}
+        .categorydesign{margin-top: 20px;}
+        .categoryTitle{display: flex; flex-direction: column; margin-top: 10px;}
+        body #divSayfalamaUst{margin: 0;}
+
+        .tukgo{display: none!important;}
+        body #divSayfalamaUst{margin: 0 0 10px;}
+        .bottomFilter{width: 100%; height: 50px; z-index: 99; padding: 10px 0; display: none;}
+        .bottomFilter .panel-default.vertical-filter-panel{padding: 0; border: none; background-color: #fff;}
+        .bottomFilter .panel-heading{width: 30%; border-radius: 10px; text-align: center; border: 1px solid #e4e3e3!important; margin-left: 10px; display: inline-block;}
+        .bottomFilter .panel-title{font-size: 10px;}
+        .bottomFilter .list-group{display: none; background: #fff; padding: 10px; box-shadow: 0 6px 10px -2px #00000029; margin: 0; position: absolute; width: 100%;}
+    }
+</style>

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>sss</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .sssTitle{padding: 20px; text-align: center;}
+        .sssTitle span{font-size: 24px; font-weight: 600; text-align: center;}
+        .ticiContainer{max-width: 100%; margin: 0!important;}
+        /*****ÜST TAB BÖLÜMÜ*****/
+        /* Style the tab */
+        /* Style the buttons inside the tab */
+        .tab .tablinks {width: 100%; height: 200px; background: #fff; float: left;border: 1px solid #f1f1f1; border-radius: 10px; outline: none;cursor: pointer;
+            /*transition: 0.3s;*/
+            font-size: 17px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;}
+        .tab .tablinks i{font-size: 30px;}
+        /* Change background color of buttons on hover */
+        .tab .tablinks:hover {/*background-color: #ddd;*/}
+        /* Create an active/current tablink class */
+        .tab .tablinks.active {border-color: red; color: red;}
+        /* Style the tab content */
+        .tabcontent {display: none;border-top: none; max-width: 1410px; margin: 0 auto;}
+        .tabcontentTitle{padding: 20px 0;}
+        .tabcontentTitle span{font-size: 18px; font-weight: 600;}
+
+        /*****İÇ AKORDION BÖLÜMÜ*****/
+        .accordion {background-color: #f1f1f1;color: #000;cursor: pointer;padding: 14px;border: none;text-align: left;outline: none;font-size: 15px;transition: 0.4s;
+        border-radius: 10px; display: flex; justify-content: space-between;}
+        .accordion:after {content: "\f054";
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            color: #ff6100;
+            right: 10px;
+            font-family: 'FontAwesomePro';}
+        .accordion.active:after{content: "\f078";}
+        .accordionBlock{border: 1px solid #f1f1f1; margin-bottom: 10px; border-radius: 10px;}
+        .active, .accordion:hover {background-color: #f1f1f1;}
+        .panel {padding: 0 18px;display: none;background-color: white;overflow: hidden; border-radius: 10px; transition: 2s;}
+        
+
+        /*****OWL CAROUSEL BÖLÜMÜ*****/
+        .storyArea.catStory{background: #f1f1f1;margin: 0 0 20px; width: 100%;float: left;padding: 20px 0;}
+        .rocat-carousel-wrap {padding: 10px;width: 100%;max-width: 1410px; position: relative;margin-left: auto; margin-right: auto; pointer-events: none;}
+        .rocat-carousel-wrap .owl-carousel.rocat{display: flex; align-items: center; pointer-events: auto;}
+        /*.rocat-carousel-wrap .owl-item{max-width: 150px;}*/
+        /* fix blank or flashing items on carousel */
+        .rocat-carousel-wrap .owl-carousel.rocat .owl-item {border-radius: 10px;}
+        .rocat-carousel-wrap .owl-carousel.rocat .item.rocat {position: relative;z-index: 100; -webkit-backface-visibility: hidden; }
+        .rocat-carousel-wrap .owl-carousel.rocat .item.rocat img{scale: 0.7;}
+        /* end fix */
+        .rocat-carousel-wrap .owl-nav {width: 100%; justify-content: space-between; margin-top: 0;position: absolute;top: 40%;color: #000; left: auto; display: flex!important;}
+        .rocat-carousel-wrap .owl-nav i {font-size: 15px;font-weight: 400;}
+        .rocat-carousel-wrap .owl-carousel.rocat .owl-nav .owl-prev {padding: 8px 13px!important;border-radius: 50%; left: -40px; position: absolute;}
+        .rocat-carousel-wrap .owl-carousel.rocat .owl-nav .owl-next {padding: 8px 13px!important;border-radius: 50%; right: -60px!important; position: absolute;}
+        .storyArea.catStory .rocat-carousel-wrap .owl-carousel.rocat .item.rocat span{font-size: 13px; font-weight: 600;width: 100%;color: #181516;display: flex;text-align: center;justify-content: center;padding-top: 10px;}
+        
+        @media screen and (max-width: 768px){
+            .storyArea.catStory .rocat-carousel-wrap .owl-carousel.rocat .item.rocat span{font-size: 10px;}
+            .rocat-carousel-wrap .owl-carousel.rocat .owl-item{max-width: 100px;}
+            .rocat-carousel-wrap .owl-nav{display: none!important;}
+            .tab .tablinks{font-size: 12px; height: 100px;}
+            .tab .tablinks i{font-size: 20px;}
+            .panel p{font-size: 12px; line-height: 18px;}
+            .tabcontent{margin: 0 10px;}
+            .accordion{padding: 12px;}
+        }
+    </style>
+
+    <div class="sssTitle">
+        <span>Sıkça Sorulan Sorular</span>
+    </div>
+
+    <div class="storyArea catStory ss">
+        <div class="rocat-carousel-wrap tab">
+          <div class="owl-carousel rocat">
+            <div class="item rocat"><div class="tablinks active" onclick="openCity(event, 'populer')"><i class="fas fa-fire"></i>Popüler Sorular</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'alisveris')"><i class="fas fa-shopping-cart"></i>Alışveriş</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'odeme')"><i class="fas fa-credit-card"></i>Ödeme</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'teslimat')"><i class="fas fa-truck"></i>Teslimat</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'iptal')"><i class="fas fa-box-open"></i>İptal & İade</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'uyelik')"><i class="fas fa-user"></i>Üyelik</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'gizlilik')"><i class="fas fa-lock"></i>Gizlilik & Güvenlik</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'iletisim')"><i class="fas fa-tty"></i>İletişim</div></div>
+            <div class="item rocat"><div class="tablinks" onclick="openCity(event, 'fabrikamiz')"><i class="fas fa-industry"></i>Fabrikamız</div></div>
+          </div>
+        </div>
+    </div>
+
+    <div id="populer" class="tabcontent" style="display: block;">
+        <div class="tabcontentTitle">
+            <span>Popüler Sorular</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Siparişim ne zaman adresime ulaşır?</div>
+            <div class="panel">
+                <p>Ürünleriniz, sipariş verdiğiniz tarihten itibaren 30 iş günü içerisinde nakliye firmamıza sevk edilir. Nakliye firmamız bulunduğunuz konuma bağlı olarak ürünlerinizi 1-7 iş günü içerisinde adresinize teslim etmektedir. Daha detaylı bilgi için <a href="/teslimat" target="_blank" style="text-decoration: none;">teslimat</a> sayfamıza ulaşabilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="accordionBlock">
+            <div class="accordion">Hangi kargo firmalarıyla çalışıyorsunuz?</div>
+            <div class="panel">
+                <p>Siparişiniz gönderilirken mobilyaların zarar görmemesi için kesinlikle aktarma görmemesi gerekiyor. Bu sebeple sıradan kargo firmaları ile çalışmak yerine tüm nakliyat sürecini fabrikamızdan adresinize gelecek şekilde anlaşmalı olduğumuz nakliyat firması ile sağlamaktayız.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Showroom mağazanız var mı?</div>
+            <div class="panel">
+                <p>Ürünlerin fiziksel olarak sergilendiği showroom mağazamız yoktur. Tüm ürünler sipariş geldiği anda fabrikamızda üretilmeye başlar ve sevk edilir.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Nasıl sipariş verebilirim?</div>
+            <div class="panel">
+                <p>Satın almak istediğiniz ürünleri, varsa ölçülerini seçerek "Sepete Ekle" butonuna tıklayarak sepetinize ekleyin. Ürünleri sepetinize ekledikten sonra, ekranın sağ üst köşesinde yer alan "Sepetim" simgesine tıklayın. Devam etmek için "Siparişi Tamamla" butonuna tıkalyın. Adres alanını detaylı ve doğru bir şekilde doldurun. Tercih ettiğiniz ödeme yöntemini seçin. Gerekli bilgileri doldurarak "Siparişi Tamamla" butonuna tıklayın. İşlem tamam; siparişiniz alınmıştır.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Sitenizden başka ürün var mı?</div>
+            <div class="panel">
+                <p>Satışa sunduğumuz ürünlerimizin tamamı online satış platformumuz ile sınırlıdır. Başka bir ürün veya fabrika stokları satışa sunulmamaktadır.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="alisveris" class="tabcontent">
+        <div class="tabcontentTitle">
+            <span>Alışveriş</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Nasıl sipariş verebilirim?</div>
+            <div class="panel">
+                <p>Satın almak istediğiniz ürünleri, varsa ölçülerini seçerek "Sepete Ekle" butonuna tıklayarak sepetinize ekleyin. Ürünleri sepetinize ekledikten sonra, ekranın sağ üst köşesinde yer alan "Sepetim" simgesine tıklayın. Devam etmek için "Siparişi Tamamla" butonuna tıkalyın. Adres alanını detaylı ve doğru bir şekilde doldurun. Tercih ettiğiniz ödeme yöntemini seçin. Gerekli bilgileri doldurarak "Siparişi Tamamla" butonuna tıklayın. İşlem tamam; siparişiniz alınmıştır.</p>
+            </div>
+        </div>
+        
+        <div class="accordionBlock">
+            <div class="accordion">Sitenizden başka ürün var mı?</div>
+            <div class="panel">
+                <p>Satışa sunduğumuz ürünlerimizin tamamı online satış platformumuz ile sınırlıdır. Başka bir ürün veya fabrika stokları satışa sunulmamaktadır.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Showroom mağazanız var mı?</div>
+            <div class="panel">
+                <p>Ürünlerin fiziksel olarak sergilendiği showroom mağazamız yoktur. Tüm ürünler sipariş geldiği anda fabrikamızda üretilmeye başlar ve sevk edilir.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Üye olmadan sipariş verebilir miyim?</div>
+            <div class="panel">
+                <p>Üye olmadan sipariş verebilirsiniz. Bunun için ürün sayfalarından satın almak istediğiniz ürünleri sepete ekleyerek, 'Siparişi Tamamla” adımında karşınıza çıkan ekrandan 'Üye Olmadan Devam Et' seçimini yapmanız yeterli. Üye olmadan verdiğiniz siparişe ait bilgilendirmeleri, sipariş esnasında paylaştığınız e-posta adresinden ve cep telefonu numaranızdan takip edebilirsiniz. Siparişlerinize ait bilgilere erişebilmek için üye olarak sipariş vermenizi tavsiye ederiz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Alışverişimi tamamlarken hata alırsam ne yapmalıyım?</div>
+            <div class="panel">
+                <p>Romano olarak her zaman hatasız ve 100% güvenli bir alışveriş deneyimi sunmak için çabalıyoruz, fakat bazen alışverişinizi tamamlarken bazı online altyapı kaynaklı teknik hatalar ile karşılaşabilirsiniz. Bu gibi durumlarda sizlere en kısa sürede yardımcı olabilmemiz adına bizimle iletişime geçmenizi öneriyoruz. Bizlere <a href="/iletisim" target="_blank" style="text-decoration: none;">iletişim</a> sayfası üzerinden ulaşabilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Sepetimdeki ürünler tükenir mi?</div>
+            <div class="panel">
+                <p>Sepetinize eklediğiniz ürünler için stok revizesi yapılamamaktadır. Sepetinize eklediğiniz ürünü satın almadığınız sürece tükenme ihtimali bulunmaktadır.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="odeme" class="tabcontent">
+        <div class="tabcontentTitle">
+            <span>Ödeme</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Kapıda ödeme seçeneğiniz var mı?</div>
+            <div class="panel">
+                <p>Kapıda ödeme seçeneğimiz bulunmamaktadır. Kredi kartı veya indirimli havale seçenekleri ile ödeme yapabilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="accordionBlock">
+            <div class="accordion">Kredi kartına taksit yapılıyor mu?</div>
+            <div class="panel">
+                <p>Kredi kartına 12 aya varan taksit seçeneğimiz bulunmaktadır. Ödeme sayfasında kart bilgilerinizi girdikten sonra taksit seçeneklerini görüntüleyebilir ve seçebilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Kredi kartımı kaydediyor musunuz?</div>
+            <div class="panel">
+                <p>Yapacağınız ödemelerde kredi kartı bilgileriniz hiçbir şekilde bizimle paylaşılmamamaktadır. Ayrıca romanodizayn.com olarak kart saklama, kart kaydetme gibi hizmetler sunmuyoruz. Kısacası kart bilgileriniz kaydedilmiyor. Fakat ödeme partnerimiz olan ödeme kuruluşu iyzico'nun kart kaydetme özelliği var, bu özelliği ödeme adımında iyzico ödeme sayfasında görebilirsiniz. Bu kutucuğu işaretlerseniz bir sonraki ödemelerinizde kolayca işlem yapabilmeniz için kart bilgileriniz iyzico güvencesinde şifrelenerek saklanılmaktadır.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Kredi kartıyla ödeme yaparken güvende miyim?</div>
+            <div class="panel">
+                <p>Evet tamamen güvendesiniz. romanodizayn.com'da en yüksek güvenlik sistemi olan GREEN BAR SSL uygulaması bulunmaktadır. 128 bit şifreleme ile iletilen bilgilerin güvenliğini sağlayan en iyi SSL Sertifikası kullanılır. Ödeme adımında kart bilgileriniz kesinlikle üçüncü kişiler tarafından görülemez. Ayrıca ödeme işlemlerinizi de iyzico güvencesiyle sağlamaktasınız. Tüm işlemlerde 3D Secure sistemi kullanılır. 3D Secure, online alışverişlerin güvenliğini sağlamak amacıyla kart kuruluşları tarafından geliştirilmiş bir kimlik doğrulama sitemidir.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Havale ile ödeme yapabilir miyim?</div>
+            <div class="panel">
+                <p>Elbette, havale ile ödeme seçeneğini müşterilerimize sunuyoruz. Ödeme seçenekleri alanından "Havale İle Öde" seçeneğini işaretlediğiniz takdirde %5 ekstra indirimden de faydalanabilirsiniz!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="teslimat" class="tabcontent">
+        <div class="tabcontentTitle"> 
+            <span>Teslimat</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Siparişim ne zaman adresime ulaşır?</div>
+            <div class="panel">
+                <p>Ürünleriniz, sipariş verdiğiniz tarihten itibaren 30 iş günü içerisinde nakliye firmamıza sevk edilir. Nakliye firmamız bulunduğunuz konuma bağlı olarak ürünlerinizi 1-7 iş günü içerisinde adresinize teslim etmektedir. Daha detaylı bilgi için teslimat sayfamıza ulaşabilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="accordionBlock">
+            <div class="accordion">Kargo ücretleri nelerdir?</div>
+            <div class="panel">
+                <p>Tüm nakliye masrafları tarafımızdan karşılanmakta olup kargo için ekstra bir ücret ödememektesiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Kargomu teslim alırken nelere dikkat etmeliyim?</div>
+            <div class="panel">
+                <p>Sipariş oluşturduğunuz andan itibaren ürünleriniz kullanıma hazır hale gelinceye kadar tüm operasyon fabrikamız sorumluluğundadır.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Resmi tatil günlerinde teslimat yapılıyor mu?</div>
+            <div class="panel">
+                <p>Nakliyat süreci içerisinde firmanın ve müşterinin müsaitlik durumuna bağlı olarak tatil günlerinde de teslimat yapılabilmektedir.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Hangi kargo firmalarıyla çalışıyorsunuz?</div>
+            <div class="panel">
+                <p>Siparişleriniz gönderilirken mobilyaların hasara uğramaması için kesinlikle aktarma görmemesi gerekiyor. Bu sebeple sıradan kargo firmaları ile çalışmak yerine tüm nakliyat sürecini fabrikamızdan adresinize gelecek şekilde anlaşmalı olduğumuz nakliyat firması ile sağlamaktayız.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Siparişimi nasıl takip ederim?</div>
+            <div class="panel">
+                <p>Siparişinizin durumunu öğrenmek için bizlere <a href="/iletisim" target="_blank" style="text-decoration: none;">iletişim</a> sayfası üzerinden ulaşabilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="iptal" class="tabcontent">
+        <div class="tabcontentTitle">
+            <span>İptal & İade</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">İade prosedürleriniz nelerdir?</div>
+            <div class="panel">
+                <p>Müşterilerimizin memnuniyeti ve beklentileri bizim için önemlidir. Bu nedenle koşulsuz iade güvenceniz bulunmaktadır. Herhangi bir nedenle siparişinizden memnun kalmazsanız, satın aldığınız ürün ya da ürünlerinizi, orijinal ambalajında, kullanılmamış ve etiketleri çıkartılmamış olması koşuluyla teslim aldığınız tarihten itibaren 7 gün içinde iade edebilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Özelleştirilen ürünlerde iade var mı?</div>
+            <div class="panel">
+                <p>Özelleştirilen ürünler sizin talebinize ve zevkinize göre üretildiği için bu koşullar altında iade kabul edilmemektedir.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">İade işlemini nasıl yapabilirim?</div>
+            <div class="panel">
+                <p>Romanodizayn.com' da iade süreci kolay ve hızlı işler. Müşterilerimize uzun uzun koşullar belirtmiyoruz. İade etmek istediğiniz ürün için bize bildirimde bulunmanız halinde, firmamıza ait araçlarımızla ürününüzü gelip teslim alalım. Siz değerli müşterilerimizden sadece küçük bir ricamız olacak; iade nedeninizi belirtiriseniz standartlarımızı yükseltmemize yardımcı olmanızın mutluluğunu paylaşacağız. Bizden aldığınız ürünü ya da ürünleri iade koşullarına uygunsa, teslim aldığınız günden itibaren 7 iş günü içerisinde cayma hakkınız vardır. 0850 885 2255 nolu telefonu arayarak veya destek@romanodizayn.com adresimizden kolaylıkla talepte bulunabilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="accordionBlock">
+            <div class="accordion">Siparişimi nasıl iptal edebilirim?</div>
+            <div class="panel">
+                <p>Henüz teslim edilmemiş veya üretim aşamasına girmemiş siparişlerinizi iptal etmek için "Siparişlerim" menüsünde yer alan "İptal Et" seçeneğinden veya tarafımıza ulaşarak iptal edebilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">İade kargo masraflarını ben mi ödeyeceğim?</div>
+            <div class="panel">
+                <p>İade edilmesini istediğiniz ürün ayıplı değilse, nakliye ve taşıma ücreti müşteriler tarafından karşılanmaktadır.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Ücret iadesi ne zaman yapılır?</div>
+            <div class="panel">
+                <p>İade ettiğiniz ürün elimize ulaşır, inceleme süreci aynı gün başlar ve iade koşullarına uygunluğu tespit edilir. Eğer iadeniz uygunsa, ücret iadeniz kredi kartınıza/banka hesabınıza 24 saat içerisinde yapılır. Bu işlemin hesabınıza yansıma süresi bankanıza göre değişkenlik gösterebilmektedir.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="uyelik" class="tabcontent">
+        <div class="tabcontentTitle">
+            <span>Üyelik</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Üyelik bilgilerimi nasıl güncelleyebilirim?</div>
+            <div class="panel">
+                <p>Üyelik bilgilerinizi güncellemek için <a href="/hesabim" target="_blank" style="text-decoration: none;">hesabım</a> sayfasını ziyaret edebilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="accordionBlock">
+            <div class="accordion">Üyeliğimi nasıl iptal edebilirim?</div>
+            <div class="panel">
+                <p>Üyeliğinizi kalıcı olarak iptal etmek(silmek) için Hesabım sayfasında Üyelik Bilgilerim sekmesindeki "Üyeliğimi Sil" butonunu kullanabilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Şifremi unuttum, ne yapmalıyım?</div>
+            <div class="panel">
+                <p>Şifrenizi unutmanız durumunda “Üye Giriş” sayfasında yer alan “Şifremi Unuttum” bağlantısına tıklayabilirsiniz. Hesabınıza ait e-posta adresini yazdıktan sonra güvenlik kutucuğunu doldurarak tekrar şifre talebinde bulunabilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Üye olmadan sipariş verebilir miyim?</div>
+            <div class="panel">
+                <p>Üye olmadan sipariş verebilirsiniz. Bunun için ürün sayfalarından satın almak istediğiniz ürünleri sepete ekleyerek, 'Siparişi Tamamla” adımında karşınıza çıkan ekrandan 'Üye Olmadan Devam Et' demeniz yeterli. Üye olmadan verdiğiniz siparişe ait bilgilendirmeleri, sipariş esnasında paylaştığınız e-posta adresinden ve cep telefonu numaranızdan takip edebilirsiniz. Siparişlerinize ait bilgilere erişebilmek için üye olarak sipariş vermenizi tavsiye ederiz.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="gizlilik" class="tabcontent">
+        <div class="tabcontentTitle">
+            <span>Gizlilik & Güvenlik</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Romano'nun kişisel verileri toplamasının yasal dayanağı nedir?</div>
+            <div class="panel">
+                <p>Müşterilerimizin kişisel verilerinin kullanılması konusunda çeşitli kanunlarda düzenlemeler bulunmaktadır. En başta KVKK ile kişisel verilerin korunması esasları belirlenmiştir. Ayrıca 6563 Sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun da kişisel verilerin korunmasına ilişkin hüküm içermektedir. 5237 Sayılı Türk Ceza Kanunu hükümleri yoluyla da kişisel verilerin korunması için bazı hallerde cezai yaptırımlar öngörülmüştür. Diğer yandan, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği'nden doğan yükümlülüklerimizin ifası amacıyla verilerin toplanması ve kullanılması gerekmektedir.</p>
+            </div>
+        </div>
+        
+        <div class="accordionBlock">
+            <div class="accordion">Romano kişisel verilerin toplanmasında hangi yöntemleri kullanıyor?</div>
+            <div class="panel">
+                <p>www.romanodizayn.com web sitesinden veya mobil uygulamalardan işlem yapan müşterilerimizin verdikleri veriler, müşterilerimizin rızaları ve mevzuat hükümleri uyarınca Romano tarafından işlenmektedir. Romano'ya ait olan www.romanodizayn.com web sitesi çerez (cookie) kullanan bir sitedir. Çerez; kullanılmakta olan cihazın internet tarayıcısına ya da sabit diskine depolanarak söz konusu cihazın tespit edilmesine olanak tanıyan, çoğunlukla harf ve sayılardan oluşan bir dosyadır. www.romanodizayn.com ziyaretçilerine daha iyi hizmet verebilmek amacıyla ve yasal yükümlülüğü çerçevesinde, işbu Kişisel Verilerin Korunması Hakkında Açıklama metninde belirlenen amaçlar ve kapsam dışında kullanılmamak kaydı ile gezinme bilgilerinizi toplayacak, işleyecek, üçüncü kişilerle paylaşacak ve güvenli olarak saklayacaktır. www.romanodizayn.com çerezleri; günlük dosyaları, boş gif dosyaları ve/veya üçüncü taraf kaynakları yoluyla topladığı bilgileri tercihlerinizle ilgili bir özet oluşturmak amacıyla depolar. www.romanodizayn.com size özel tanıtım yapmak, promosyonlar ve pazarlama teklifleri sunmak, web sitesinin veya mobil uygulamanın içeriğini size göre iyileştirmek ve/veya tercihlerinizi belirlemek amacıyla; site üzerinde gezinme bilgilerinizi ve/veya site üzerindeki kullanım geçmişinizi izleyebilmektedir. www.romanodizayn.com çevrimiçi ve çevrimdışı olarak toplanan bilgiler gibi farklı yöntemlerle veya farklı zamanlarda site üzerinde sizden toplanan bilgileri eşleştirebilir ve bu bilgileri üçüncü taraflar gibi başka kaynaklardan alınan bilgilerle birlikte kullanabilir. www.romanodizayn.com mobil uygulamasında oturum çerezleri ve kalıcı çerezler kullanmaktadır. Oturum kimliği çerezi, tarayıcınızı kapattığınızda sona erer. Kalıcı çerez ise sabit diskinizde uzun bir süre kalır. İnternet tarayıcınızın "yardım" dosyasında verilen talimatları izleyerek veya "www.allaboutcookies.org" veya "www.youronlinechoices.eu" adresini ziyaret ederek kalıcı çerezleri kaldırabilir ve hem oturum çerezlerini hem de kalıcı çerezleri reddedebilirsiniz. Kalıcı çerezleri veya oturum çerezlerini reddederseniz, web sitesini, mobil uygulamayı kullanmaya devam edebilirsiniz fakat web sitesinin, mobil uygulamanın tüm işlevlerine erişemeyebilirsiniz veya erişiminiz sınırlı olabilir.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">İnternet Sitesi Çerezleri Nasıl Kullanılmaktadır?</div>
+            <div class="panel">
+                <p>www.romanodizayn.com çerezleri; yaptığınız tercihleri hatırlamak ve web sitesi/mobil uygulama kullanımınızı kişiselleştirmek için kullanır. Bu kullanım parolanızı kaydeden ve web sitesi/mobil uygulama oturumunuzun sürekli açık kalmasını sağlayan, böylece her ziyaretinizde birden fazla kez parola girme zahmetinden kurtaran çerezleri ve web sitesi/mobil uygulamaya daha sonraki ziyaretlerinizde sizi hatırlayan ve tanıyan çerezleri içerir.www.romanodizayn.com web sitesine nereden bağlandığınız, web sitesi/mobil uygulama üzerinde hangi içeriği görüntülediğiniz ve ziyaretinizin süresi gibi web sitesini/mobil uygulamayı nasıl kullandığınızın izlenmesi dahil olmak üzere; web sitesini/mobil uygulamayı nasıl kullandığınızı belirlemek için kullanır. www.romanodizayn.com web sitesindeki çerezler ilgi alanlarınıza ve size daha uygun içerik ve reklamları sunmak için reklam/tanıtım amacıyla kullanılır. Bu şekilde, web sitesini, mobil uygulamasını kullandığınızda size daha uygun içerikleri, kişiye özel kampanya ve ürünleri sunar ve daha önceden istemediğinizi belirttiğiniz içerik veya fırsatları bir daha sunmaz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">İnternet Sitesi üçüncü taraf çerezlerini reklam ve yeniden hedefleme için nasıl kullanmaktadır?</div>
+            <div class="panel">
+                <p>www.romanodizayn.com web sitesi çerezleri ayrıca; arama motorlarını, web sitesi, mobil uygulamasını ve/veya web sitesinin reklam verdiği internet sitelerini ziyaret ettiğinizde ilginizi çekebileceğini düşündüğü reklamları size sunabilmek için "reklam teknolojisini" devreye sokmak amacıyla kullanabilir. Reklam teknolojisi, size özel reklamlar sunabilmek için web sitesine/mobil uygulamaya ve web sitesinin reklam verdiği web sitelerine/mobil uygulamalarına yaptığınız önceki ziyaretlerle ilgili bilgileri kullanır. Bu reklamları sunarken, web sitesinin sizi tanıyabilmesi amacıyla tarayıcınıza benzersiz bir üçüncü taraf çerezi yerleştirilebilir. İnternet tarayıcınızın "yardım" dosyasında verilen talimatları izleyerek veya "www.allaboutcookies.org" ya da "www.youronlinechoices.eu" adresini ziyaret ederek kalıcı çerezleri kaldırabilir ve hem oturum çerezlerini hem de kalıcı çerezleri reddedebilirsiniz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Romano kişisel verileri hangi amaçlarla kullanıyor?</div>
+            <div class="panel">
+                <p>Romano, mevzuatın izin verdiği durumlarda ve ölçüde kişisel bilgilerinizi kaydedebilecek, saklayabilecek, güncelleyebilecek, üçüncü kişilere açıklayabilecek, devredebilecek, sınıflandırabilecek ve işleyebilecektir. Kişisel verileriniz şu amaçlarla kullanılmaktadır: Web sitesi/mobil uygulamalar üzerinden alışveriş yapanın/yaptıranın kimlik bilgilerini teyit etmek,iletişim için adres ve diğer gerekli bilgileri kaydetmek, mesafeli satış sözleşmesi ve Tüketicinin Korunması Hakkında Kanun'un ilgili maddeleri tahtında akdettiğimiz sözleşmelerin koşulları, güncel durumu ve güncellemeler ile ilgili müşterilerimiz ile iletişime geçmek, gerekli bilgilendirmeleri yapabilmek,elektronik (internet/mobil vs.) veya kağıt ortamında işleme dayanak olacak tüm kayıt ve belgeleri düzenlemek,mesafeli satış sözleşmesi ve Tüketicinin Korunması Hakkında Kanun'un ilgili maddeleri tahtında akdettiğimiz sözleşmeler uyarınca üstlenilen yükümlülükleri ifa etmek,kamu güvenliğine ilişkin hususlarda talep halinde ve mevzuat gereği kamu görevlilerine bilgi verebilmek,müşterilerimize daha iyi bir alışveriş deneyimini sağlamak, "müşterilerimizin ilgi alanlarını dikkate alarak" müşterilerimizin ilgilenebileceği ürünlerimiz hakkında müşterilerimize bilgi verebilmek, kampanyaları aktarmak, müşteri memnuniyetini artırmak, web sitesi ve/veya mobil uygulamalardan alışveriş yapan müşterilerimizi tanıyabilmek ve müşteri çevresi analizinde kullanabilmek, çeşitli pazarlama ve reklam faaliyetlerinde kullanabilmek ve bu kapsamda anlaşmalı kuruluşlar aracılığıyla elektronik ortamda ve/veya fiziki ortamda anketler düzenlemek, anlaşmalı kurumlarımız ve çözüm ortaklarımız tarafından müşterilerimize öneri sunabilmek, hizmetlerimizle ilgili müşterilerimizi bilgilendirebilmek, hizmetlerimiz ile ilgili müşteri şikayet ve önerilerini değerlendirebilmek, yasal yükümlülüklerimizi yerine getirebilmek ve yürürlükteki mevzuattan doğan haklarımızı kullanabilmek.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Romano kişisel verilerinizi nasıl koruyor?</div>
+            <div class="panel">
+                <p>Romano ile paylaşılan kişisel veriler, Romano gözetimi ve kontrolü altındadır. Romano yürürlükteki ilgili mevzuat hükümleri gereğince bilginin gizliliğinin ve bütünlüğünün korunması amacıyla gerekli organizasyonu kurmak ve teknik önlemleri almak ve uyarlamak konusunda veri sorumlusu sıfatıyla sorumluluğu üstlenmiştir. Bu konudaki yükümlülüğümüzün bilincinde olarak veri gizliliğini konu alan uluslararası ve ulusal teknik standartlara uygun surette periyodik aralıklarda sızma testleri yaptırılmakta ve bu kapsamda veri işleme politikalarımızı her zaman güncellediğimizi bilginize sunarız.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Romano kişisel verilerinizi paylaşıyor mu?</div>
+            <div class="panel">
+                <p>Müşterilerimize ait kişisel verilerin üçüncü kişiler ile paylaşımı, müşterilerin izni çerçevesinde gerçekleşmekte ve kural olarak müşterimizin onayı olmaksızın kişisel verileri üçüncü kişilere aktarılmamaktadır. Bununla birlikte, yasal yükümlülüklerimiz nedeniyle ve bunlarla sınırlı olmak üzere mahkemeler ve diğer kamu kurumları ile kişisel veriler paylaşılmaktadır. Ayrıca, taahhüt ettiğimiz hizmetleri sağlayabilmek ve verilen hizmetlerin kalite kontrolünü yapabilmek için anlaşmalı üçüncü kişilere kişisel veri aktarımı yapılmaktadır. Üçüncü kişilere veri aktarımı sırasında hak ihlallerini önlemek için gerekli teknik ve hukuki önlemler alınmaktadır. Bununla birlikte, kişisel verileri alan üçüncü kişinin veri koruma politikalarından dolayı ve üçüncü kişinin sorumluluğundaki risk alanında meydana gelen ihlallerden Romano sorumlu değildir. Kişisel verileriniz Romano'nun hissedarlarıyla, doğrudan/dolaylı yurtiçi/yurtdışı iştiraklerimize, faaliyetlerimizi yürütebilmek için işbirliği yaptığımız program ortağı kurum, kuruluşlarla, verilerin bulut ortamında saklanması hizmeti aldığımız yurtiçi/yurtdışı kişi ve kurumlarla, müşterilerimize ticari elektronik iletilerin gönderilmesi konusunda anlaşmalı olduğumuz yurtiçi/yurtdışındaki kuruluşlarla, Bankalar arası Kart Merkeziyle, anlaşmalı olduğumuz bankalarla ve sizlere daha iyi hizmet sunabilmek ve müşteri memnuniyetini sağlayabilmek için çeşitli pazarlama faaliyetleri kapsamında yurtiçi ve yurtdışındaki çeşitli ajans, reklam şirketleri ve anket şirketleriyle ve yurtiçi/yurtdışı diğer üçüncü kişilerle ve ilgili iş ortaklarımızla paylaşılabilmektedir.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Kişisel Verilerin Korunması Kanunu'ndan doğan haklarınız nelerdir?</div>
+            <div class="panel">
+                <p>KVKK uyarınca kişisel verilerinizin;
+                    A. . İşlenip işlenmediğini öğrenme,
+                    B. . İşlenmişse bilgi talep etme
+                    C. . İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme
+                    D. . Yurt içinde / yurt dışında aktarıldığı 3. kişileri bilme
+                    E. . Eksik / yanlış işlenmişse düzeltilmesini isteme
+                    F. . KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde silinmesini / yok edilmesini isteme
+                    G. . Aktarıldığı 3. kişilere yukarıda sayılan (d) ve (e) bentleri uyarınca yapılan işlemlerin bildirilmesini isteme
+                    H. . Münhasıran otomatik sistemler ile analiz edilmesi nedeniyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme
+                    İ. . KVKK'ya aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme haklarına sahip olduğunuzu hatırlatmak isteriz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Kişisel verilerle ilgili mevzuat değişikliklerinden nasıl haberdar olabilirim?</div>
+            <div class="panel">
+                <p>KVKK uyarınca sahip olduğunuz haklar Romano'nun yükümlülükleridir. Kişisel verilerinizi bu bilinçle ve mevzuatın gerektirdiği ölçüde işlediğimizi, yasal değişikliklerin olması halinde sayfamızda yer alan bu bilgileri yeni mevzuata uygun güncelleyeceğimizi, yapılan güncellemeleri de bu sayfa üzerinden her zaman kolaylıkla takip edebileceğinizi size bildirmek isteriz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Verinin güncel ve doğru tutulduğundan nasıl emin olabilirim?</div>
+            <div class="panel">
+                <p>KVKK'nın 4. maddesi uyarınca Romano'nun kişisel verilerinizi doğru ve güncel olarak tutma yükümlülüğü bulunmaktadır. Bu kapsamda Romano'nun yürürlükteki mevzuattan doğan yükümlülüklerini yerine getirebilmesi için müşterilerimizin Romano ile doğru ve güncel verilerini paylaşması gerekmektedir. Verilerinizin herhangi bir surette değişikliğe uğraması halinde aşağıda belirtilen iletişim kanallarından bizimle iletişime geçerek verilerinizi güncellemenizi rica ederiz.</p>
+            </div>
+        </div>
+
+        <div class="accordionBlock">
+            <div class="accordion">Romano'ya kişisel verilerinizle ilgili soru sormak ister misiniz?</div>
+            <div class="panel">
+                <p>Bize kişisel verilerinizle ilgili her türlü soru ve görüşleriniz için destek@romanodizayn.com e-posta adresinden dilediğiniz zaman ulaşabilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="iletisim" class="tabcontent">
+        <div class="tabcontentTitle">
+            <span>İletişim</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Romano ile nasıl iletişime geçebilirim?</div>
+            <div class="panel">
+                <p>Bizlere <a href="tel:08508852255">0850 885 22 55</a> destek hattı üzerinden veya <a href="mailto:destek@romanodizayn.com">destek@romanodizayn.com</a> adresinden ulaşabilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="fabrikamiz" class="tabcontent">
+        <div class="tabcontentTitle">
+            <span>Fabrikamız</span>
+        </div>
+        <div class="accordionBlock">
+            <div class="accordion">Romano</div>
+            <div class="panel">
+                <!--HAKKIMIZDA ALANI-->
+        <div class="projectsDetailArea" style="margin-top:20px;">
+            <div class="projectsDetailAreaTop">
+            <h1 style="text-align: center;"><span style="color:#f8f7f7;"><span style="font-size:11px;">Fabrikamız</span></span></h1>
+    
+            <p>"Romano, mobilya endüstrisi içerisinde sınır tanımayan başarısı ile dünyanın önde gelen üretici firmaları arasında yer edinmeyi başarmıştır"</p>
+            </div>
+            </div>
+    
+            <div class="projectsDetailAreaImg">
+            <div class="projectsDetailCont">
+            <div class="projectsDetailAreaImgRs"><img src="/Uploads/EditorUploads/uretimgarantisi.jpg" /></div>
+    
+            <div class="projectsDetailAreaImgTxt">
+            <h2><span>ÜRETİM GARANTİSİ</span></h2>
+    
+            <p>İç mimarlarımız özenli, düzgün ve detaylı tasarlanan ürünleri ustalarımıza bazen alışık olmadık yöntemlerle üretmeyi talep etselerde, ustalarımız buna saygı duyar ve üretim yetenekleri eleştirel yaklaşıma açık olduklarından, bilgi ve gelişim üzerine farklı projelerin özel tasarlanmış ürünlerinin kusursuz olarak ortaya çıkmasını sağlamaktadır.</p>
+            </div>
+            </div>
+            </div>
+    
+            <div class="projectsDetailAreaImgRev">
+            <div class="projectsDetailCont">
+            <div class="projectsDetailAreaImgTxt"><span>FAALİYET ALANLARIMIZ</span>
+    
+            <ul class="listCheck">
+                <li>Oteller</li>
+                <li>Restaurantlar</li>
+                <li>Hava Limanları</li>
+                <li>Elçilik Binaları</li>
+                <li>Konsept Mağaza Zincirleri</li>
+                <li>Özel Yatlar</li>
+                <li>Restorasyon Projeleri</li>
+                <li>Konaklar</li>
+            </ul>
+            </div>
+    
+            <div class="projectsDetailAreaImgRs"><img src="/Uploads/EditorUploads/faaliyetalanlarimiz.jpg" /></div>
+            </div>
+            </div>
+    
+            <div class="projectsDetailAreaImg">
+            <div class="projectsDetailCont">
+            <div class="projectsDetailAreaImgRs"><img src="/Uploads/EditorUploads/teknikuzmanlik1.jpg" /></div>
+    
+            <div class="projectsDetailAreaImgTxt">
+            <h2><span>TEKNİK UZMANLIK</span></h2>
+    
+            <p>Ekibimiz benzersiz hizmet farkıyla, yüksek standartlarda yaptığı üretimin gücüne güvenerek profesyonel mimar ve üretici kadrosu ile yaratıcı çözümler sunmaktadır.</p>
+    
+            <p>Tasarımcılarımız ve ustalarımız aynı çatı altında olduklarından her biri proje geliştirme sürecinin bir parçası olarak daima&nbsp;profesyonel tutum içindedirler.&nbsp;</p>
+    
+            <p>Tüm bu sürecin diğer bir önemli parçası da, uygulama öncesi üretimi yapılacak ürünlerin tek tek numunelerinin fabrikamızda hazırlanmasıdır.</p>
+            </div>
+            </div>
+            </div>
+    
+            <div class="projectsDetailAreaImgRev">
+            <div class="projectsDetailCont">
+            <div class="projectsDetailAreaImgTxt">
+            <h2><span>PROJE YÖNETİMİ</span></h2>
+    
+            <p>Deneyimli tasarımcılardan oluşan ekibimiz, müşterilerin ihtiyaçlarını fark ederek, her proje için en üst düzeyde tasarım ve dökümantasyon sağlamaktadır.</p>
+    
+            <ul class="listCheck">
+                <li>Tasarım yönetimi</li>
+                <li>Finansal analizler</li>
+                <li>Bütçe planlaması</li>
+                <li>Sözleşme hazırlanması</li>
+                <li>İş programları ve tüm proje yönetimi fabrikamızda hazırlanıp raporlanmaktadır.</li>
+            </ul>
+            </div>
+    
+            <div class="projectsDetailAreaImgRs"><img src="/Uploads/EditorUploads/prj-11.jpg" /></div>
+            </div>
+            </div>
+    
+            <div class="projectsDetailAreaImg">
+            <div class="projectsDetailCont">
+            <div class="projectsDetailAreaImgRs"><img src="/Uploads/EditorUploads/taah-12.jpg" /></div>
+    
+            <div class="projectsDetailAreaImgTxt">
+            <h2><span>ŞUNLARI TAAHHÜT EDİYORUZ</span></h2>
+    
+            <ul class="listNumber">
+                <li style="display: flex; align-items: center;">Üretim Garantisi</li>
+                <li style="display: flex; align-items: center;">Online Proje Takip Hizmeti</li>
+                <li style="display: flex; align-items: center;">Teknik Analiz Uzmanlığı</li>
+                <li style="display: flex; align-items: center;">Yenilikçi ve Ayırt Edici Tasarım</li>
+                <li style="display: flex; align-items: center;">Hizmet Kalitesi</li>
+                <li style="display: flex; align-items: center;">Bütçe Duyarlılığı</li>
+                <li style="display: flex; align-items: center;">Taahhüt ve Tutarlılık</li>
+            </ul>
+            </div>
+            </div>
+            </div>
+    
+            <div class="projectsAreaPage">
+            <div class="projectsAreaPageTop"><span>Projelerimiz</span> <a href="https://www.romanodizayn.com/tum-projeler">Tüm Projeleri Göster</a></div>
+    
+            <div class="projectsAreaPageBottom">
+            <ul>
+                <li><a href="/taksim-international-abant-palace-hotel-proje"><img src="/Uploads/EditorUploads/abantproje1.jpg" /> <span>Abant Palace Hotel</span> <small>İncele</small> </a></li>
+                <li><a href="/barut-hotels-arum"><img src="/Uploads/EditorUploads/baruthotel.jpg" /> <span>Barut Hotels Arum</span> <small>İncele</small> </a></li>
+                <li><a href="/pera-palace-hotel-proje"><img src="/Uploads/EditorUploads/perap2.jpg" /> <span>Pera Palace Hotel Beyoğlu</span> <small>İncele</small> </a></li>
+                <li><a href="/tui-blue-proje"><img src="/Uploads/EditorUploads/sensatori1.jpg" /> <span>TUI BLUE Sensatori Barut Fethiye</span> <small>İncele</small> </a></li>
+                <li><a href="/gurse-birsel-home-office-proje"><img src="/Uploads/EditorUploads/gulseb1.jpg" /> <span>Gülse Birsel Home Office</span> <small>İncele</small> </a></li>
+                <li><a href="/w-hotel-akaretler-proje"><img src="/Uploads/EditorUploads/whakaretler1.jpg" /> <span>W Hotel Akaretler</span> <small>İncele</small> </a></li>
+            </ul>
+            </div>
+            </div>
+    
+            <div class="hizmetlerimiz" id="hizmetlerimiz">
+            <div class="hizmetlerimizTab">
+            <div class="tabs">
+            <ul id="tabs-nav">
+                <li><a href="#tab1">İÇ MİMARI</a></li>
+                <li><a href="#tab2">MOBİLYA ÜRETİMİ</a></li>
+                <li><a href="#tab3">PROJE YÖNETİMİ</a></li>
+            </ul>
+    
+            <div id="tabs-content">
+            <div class="tab-content" id="tab1">
+            <ul>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/tfs-11.jpg" /></div>
+    
+                <div class="hizBoxText"><small>İÇ MİMARİ</small> <span>Tasarım Felsefemiz</span>
+    
+                <p>Tasarım Yolculuğumuz boyunca markaya fayda sağlayacak temel bilgileri sağlamak ve bazı duygu ve heyecanları paylaşmanın, ayrıca hayatlarınızı daha kolay ve güzel hale getiren mekanları tasarlamanın heyecanını ve...</p>
+                <a href="https://www.romanodizayn.com/tasarim-felsefemiz">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/icim-19.jpg" /></div>
+    
+                <div class="hizBoxText"><small>İÇ MİMARİ</small> <span>İç Mimarlarımız Ne Yapar?</span>
+    
+                <p>İç mimarlık, mevcut binaların yeniden kullanımı, mekanlara getirilecek yeni yaklaşımlar, yapılar ve düzenleme ilkeleri ile ilgilidir. İç mimarlarımız, iç mekan tasarımı ve mimarlık arasındaki organik bağı kurarken, aynı zamanda...</p>
+                <a href="https://www.romanodizayn.com/ic-mimari">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+            </ul>
+            </div>
+    
+            <div class="tab-content" id="tab2">
+            <ul>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/mobilya-uretimi-21.jpg" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Üretim Felsefemiz</span>
+    
+                <p>Titizlikle üretimini yaptımız mobilyalar şirketlerin marka değerini ve kimliğini kusursuz biçimde yansıtmaktadır. Üretim felsefemiz mobilyaların biçim, doku ve ışıkla tam uyum sağlaması üzerine kuruludur.</p>
+                <a href="https://www.romanodizayn.com/mobilya-uretimi">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/uretimm-14.jpg" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Otel Mobilyası</span>
+    
+                <p>Titizlikle üretimini yaptımız mobilyalar şirketlerin marka değerini ve kimliğini kusursuz biçimde yansıtmaktadır. Üretim felsefemiz mobilyaların biçim, doku ve ışıkla tam uyum sağlaması üzerine kuruludur.</p>
+                <a href="https://www.romanodizayn.com/otel-mobilyasi">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/uretimm-13.jpg" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Restaurant Mobilyası</span>
+    
+                <p>Titizlikle üretimini yaptımız mobilyalar şirketlerin marka değerini ve kimliğini kusursuz biçimde yansıtmaktadır. Üretim felsefemiz mobilyaların biçim, doku ve ışıkla tam uyum sağlaması üzerine kuruludur.</p>
+                <a href="https://www.romanodizayn.com/restaurant-mobilyasi">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+            </ul>
+            </div>
+    
+            <div class="tab-content" id="tab3">
+            <ul>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/proje-yonetimi-hizmetimiz-11.jpg" /></div>
+    
+                <div class="hizBoxText"><small>Proje Yönetimi</small><span>Proje Yönetimi Hizmetimiz</span>
+    
+                <p>Projenin ilk aşamaları, tüm tasarım ve üretim sürecinin üzerine temellendirileceği aşamalardır ve projenin devamı bu dönemlerde yapılacak iş ve araştırmalara yeterli süre ve emeğin harcanmasıyla mümkündür.</p>
+                <a href="https://www.romanodizayn.com/proje-yonetimi">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/mrk-14.jpg" /></div>
+    
+                <div class="hizBoxText"><small>Proje Yönetimi</small><span>Marka Kimliği</span>
+    
+                <p>Modern, çağdaş ve güncel fikirleri kavramsallaştırarak ideoloji, doktrin ve inançlar üzerine kurulu doğru malzemelerin özgün içerikte olmasını sağlayarak tasarlanan ürünlerin tamamını kendi fabrikamızda üretiyoruz.</p>
+                <a href="https://www.romanodizayn.com/marka-kimligi">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+            </ul>
+            </div>
+    
+            <div class="tab-content" id="tab4">
+            <ul>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/hiz1.png" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Otel Tasarımı</span>
+    
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis, tortor sed faucibus sollicitudin, odio risus rhoncus nisi, sed posuere mauris est eu augue. Proin vehicula sed purus eget gravida. Pellentesque metus eros, convallis sed quam convallis.</p>
+                <a href="#">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/hiz2.png" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Restoran Tasarımı</span>
+    
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis, tortor sed faucibus sollicitudin, odio risus rhoncus nisi, sed posuere mauris est eu augue. Proin vehicula sed purus eget gravida. Pellentesque metus eros, convallis sed quam convallis.</p>
+                <a href="#">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/hiz3.png" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Ofis Tasarımı</span>
+    
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis, tortor sed faucibus sollicitudin, odio risus rhoncus nisi, sed posuere mauris est eu augue. Proin vehicula sed purus eget gravida. Pellentesque metus eros, convallis sed quam convallis.</p>
+                <a href="#">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/mrk-14.jpg" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Rezidans Tasarımı</span>
+    
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis, tortor sed faucibus sollicitudin, odio risus rhoncus nisi, sed posuere mauris est eu augue. Proin vehicula sed purus eget gravida. Pellentesque metus eros, convallis sed quam convallis.</p>
+                <a href="#">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+                <li>
+                <div class="hizBox">
+                <div class="hizBoxImg"><img src="/Uploads/EditorUploads/hiz5.png" /></div>
+    
+                <div class="hizBoxText"><small>MOBİLYA ÜRETİMİ</small> <span>Kültürel Tasarım</span>
+    
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis, tortor sed faucibus sollicitudin, odio risus rhoncus nisi, sed posuere mauris est eu augue. Proin vehicula sed purus eget gravida. Pellentesque metus eros, convallis sed quam convallis.</p>
+                <a href="#">DETAYLI İNCELE</a></div>
+                </div>
+                </li>
+            </ul>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <!--HAKKIMIZDA ALANI-->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /////ÜST TAB BÖLÜMÜ/////
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+
+        /////İÇ AKORDION BÖLÜMÜ/////
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+            panel.style.display = "none";
+            } else {
+            panel.style.display = "block";
+            }
+        });
+        }
+
+        /////OWL CAROUSEL BÖLÜMÜ/////
+        $(".rocat-carousel-wrap .owl-carousel.rocat").owlCarousel({
+            loop: false,
+            margin: 10,
+            nav: false,
+            animateOut: 'slideOutDown',
+            animateIn: 'flipInX',
+            dragBeforeAnimFinish: false,
+            navText: [
+              '<i class="fal fa-chevron-left"></i>',
+            '<i class="fal fa-chevron-right"></i>'
+          ],
+            autoplay: false,
+            autoplayHoverPause: false,
+            responsive: {
+              0: {
+                items: 3
+              },
+              600: {
+                items: 4
+              },
+              1000: {
+                items: 8
+              }
+            }
+          });
+    </script>
+
+</body>
+</html>

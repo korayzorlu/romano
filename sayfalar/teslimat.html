@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teslimat</title>
+</head>
+<body>
+    <style>
+        .test{width: 1000px; height: 300px; background: red;}
+
+        body{font-family: source sans pro,sans-serif; margin: 0; position: relative; display: flex; justify-content: center; width: 100%;}
+        .centerCount.Middle{display: flex; justify-content: center;}
+        .teslimatBlock{position: relative; max-width: 1141px; text-align: center; align-items: center;display: flex; justify-content: center;}
+        .top1{position: absolute; top: 12.5%;}
+        .top1 p{font-size:40px; font-weight: 600; color: #312783;}
+        .top2{position: absolute; top: 17%; width: 550px;}
+        .top2 p{text-align: center; font-size: 23px; font-weight: lighter;}
+        .top3{position: absolute; top: 23%; width: 400px;}
+        .top3 p{text-align: center; font-size: 25px; font-weight: lighter;}
+        .top4{position: absolute; top: 51%; width: 100%; display: flex; justify-content: space-around;}
+        .top4 .mid1{width: 350px;}
+        .top4 .mid1 p{text-align: center; font-size: 25px; font-weight: lighter;}
+        .top4 .mid2{width: 350px;}
+        .top4 .mid2 p{text-align: center; font-size: 25px; font-weight: lighter;}
+        .top5{position: absolute; top: 63%; width: 400px;}
+        .top5 p{text-align: center; font-size: 25px; font-weight: lighter;}
+        .top6{position: absolute; top: 74.5%; width: 100%; display: flex; justify-content: space-around;}
+        .top6 .mid1{width: 300px; margin-left: 20px;}
+        .top6 .mid1 p{text-align: center; font-size: 25px; font-weight: lighter;}
+        .top6 .mid2{width: 300px; margin-left: 200px;}
+        .top6 .mid2 p{text-align: center; font-size: 25px; font-weight: lighter;}
+        .top7{position: absolute; top: 85.7%; width: 400px; margin-left: 20px;}
+        .top7 p{text-align: center; font-size: 25px; font-weight: lighter;}
+        .top8{position: absolute; top: 95%;}
+        .top8 p{text-align: center; font-size: 25px; font-weight: 600;}
+        .top8.son{}
+        .top8.son strong{color: #bb0000;}
+        .top8.son.sonDesktop{top: 92.5%;}
+        .top8.son.sonMobil{display: none;}
+        .teslimatImage{display: none;}
+
+        @media screen and (max-width: 768px) {
+            /*.teslimatBlock{display: none;}*/
+            .teslimatImage{display: flex; justify-content: center; flex-direction: column; width: 100%;}
+            .teslimatImage img{width: 100%; height: auto;}
+            .top8Mobil {width: 100%; height: 20px; background: none; position: absolute; bottom: 20px;}
+            .top8.son{margin-top: 20px;}
+            .top8.son p{font-size: 12px; font-weight: 400;}
+            .top8.son strong{color: #bb0000;}
+            .top8.son.sonMobil{display: block; top: 92%;}
+            .top8.son.sonDesktop{display: none;}
+            #footer{margin-top: 30px;}
+
+            .teslimatBlock img{width: 100%; height: auto;}
+            .top1{position: absolute; top: 11%;}
+            .top1 p{font-size:12px; font-weight: 600; color: #312783;}
+            .top2{position: absolute; top: 14%; width: 100%;}
+            .top2 p{text-align: center; font-size: 11px; font-weight: lighter;}
+            .top3{position: absolute; top: 20%; width: 40%;}
+            .top3 p{text-align: center; font-size: 11px; font-weight: lighter;}
+            .top4{position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-around;}
+            .top4 .mid1{width: 100%; padding: 0 5px;}
+            .top4 .mid1 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top4 .mid2{width: 100%; padding: 0 5px;}
+            .top4 .mid2 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top5{position: absolute; top: 60%; width: 46%; padding: 0 5px;}
+            .top5 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top6{position: absolute; top: 74.5%; width: 100%; display: flex; justify-content: space-around;}
+            .top6 .mid1{width: 100%; margin-left: 10%;}
+            .top6 .mid1 p{text-align: center; font-size: 8px; font-weight: lighter;}
+            .top6 .mid2{width: 100%; margin-left: 30%;}
+            .top6 .mid2 p{text-align: center; font-size: 9px; font-weight: lighter;}
+            .top7{position: absolute; top: 85.5%; width: 34%; margin-left: 30px;}
+            .top7 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top8{position: absolute; top: 95%;}
+            .top8 p{text-align: center; font-size: 12px; font-weight: 600;}
+        }
+
+        @media screen and (max-width: 375px) {
+            .top1 p{font-size:12px; font-weight: 600; color: #312783;}
+            .top2 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top3 p{text-align: center; font-size: 11px; font-weight: lighter;}
+            .top4 .mid1 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top4 .mid2 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top5{position: absolute; top: 60%; width: 43%;}
+            .top5 p{text-align: center; font-size: 10px; font-weight: lighter;}
+            .top6 .mid2 p{text-align: center; font-size: 8px; font-weight: lighter;}
+            .top7{position: absolute; top: 85.5%; width: 34%; margin-left: 25px;}
+            .top7 p{text-align: center; font-size: 9px; font-weight: lighter;}
+        }
+        
+    </style>
+    <!-- <div class="test"></div> -->
+    <div class="teslimatBlock">
+        <div class="top1">
+            <p>Nakliye konusundaki şüphelerinizi ortadan kaldırıyoruz!</p>
+        </div>
+        <div class="top2">
+            <p>Gönderileriniz, sipariş verdiğiniz tarihten itibaren maksimum 30 iş günü içerisinde sevk edilir. Nakliye firmamız tarafından ürünleriniz 1-7 iş günü içerisinde adresinize teslim edilmektedir.</p>
+        </div>
+        <div class="top3">
+            <p>Teslimatlarımız Türkiye'nin her yerine <strong>ücretsiz olarak katınıza kadar teslim edilir.</strong></p>
+        </div>
+        <div class="top4">
+            <div class="mid1">
+                <p>Türkiye'deki kargo firmalarının altyapıları <strong>mobilya taşımaya</strong> karşı <strong>güvenli ve uygun olmadığından,</strong> firmamız hiçbir kargo firması ile gönderim sağlamamaktadır.</p>
+            </div>
+            <div class="mid2">
+                <p>Tüm ürünlerimiz <strong>firmamıza ait araçlar veya anlaşmalı olduğumuz özel nakliye firmaları</strong> ile aktarma yapılmadan bizzat tarafımıdan koordine edilerek gönderilmektedir.</p>
+            </div>
+        </div>
+        <div class="top5">
+            <p>Bu sayede <strong>sipariş verdiğiniz ürünler</strong> üretim aşamasından adresinize ulaşıncaya kadar, hiçbir aracı kurum olmaksızın <strong>tamamen firmamız sorumluluğundadır.</strong></p>
+        </div>
+        <div class="top6">
+            <div class="mid1">
+                <p>Ürünleriniz sevk edilmeye hazır olduğunda, nakliye departmanımız üyeliğinize ait iletişim bilgilerinizden sizinle iletişime geçerek randevu talep eder.</p>
+            </div>
+            <div class="mid2">
+                <p>Randevu tarihinize ve saatinize uygun olarak ürünleriniz planlı ve sorunsuz olarak adresinize teslim edilir.</p>
+            </div>
+        </div>
+        <div class="top7">
+            <p>Randevu onayınıza istinaden ürünleriniz, kendi araçlarımız veya anlaşmalı özel nakliyecilerimizle teslimat için adresinize yönlendirilir.</p>
+        </div>
+        <div class="top8 son sonDesktop">
+            <p><strong>Not:</strong><small> Doğu ve Güneydoğu Anadolu bölgelerindeki şehirlerde nakliyat sisteminden kaynaklanan gecikmeler olabilmekte ve bu bölgelere yapılan teslimatlar 30-60 iş günü aralığında sürebilmektedir.</small></p>
+        </div>
+        <div class="top8" style="margin-top: 50px;">
+            <p>Soru ve görüşleriniz için <a href="tel:08508852255">0850 885 22 55</a> destek hattından bizlere ulaşabilirsiniz.</p>
+        </div>
+        <img src="/Uploads/EditorUploads/teslimat3.png" alt="">
+    </div>
+    <!--
+    <div class="teslimatImage">
+        <img alt="" src="../teslimat images/teslimat3.png" />
+       <a class="top8Mobil" href="tel:08508852255"></a>
+    </div>-->
+    <div class="top8 son sonMobil">
+        <p><strong>Not:</strong><small> Doğu ve Güneydoğu Anadolu bölgelerindeki şehirlerde nakliyat sisteminden kaynaklanan gecikmeler olabilmekte ve bu bölgelere yapılan teslimatlar 30-60 iş günü aralığında sürebilmektedir.</small></p>
+    </div>
+    
+    
+</body>
+</html>
+

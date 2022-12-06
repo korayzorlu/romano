@@ -1,0 +1,111 @@
+<!-- Event snippet for Satın alma işlemi 2021 conversion page -->
+<script>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-1052636102/x0QNCM6vivsCEMbn9_UD',
+        'transaction_id': ''
+    });
+  </script>
+  
+  <script>
+    
+       
+    ///////PLANLANAN TESLİMAT ARALIĞI////////
+    /////////////////////////////////////////
+    function addDays(date, days) {
+      var result = new Date(date);
+      result.setDate(result.getDate() + days);
+      return result;
+    };
+
+    function addWorkDays(startDate, days) {
+      if(isNaN(days)) {
+          console.log("Value provided for \"days\" was not a number");
+          return
+      }
+      if(!(startDate instanceof Date)) {
+          console.log("Value provided for \"startDate\" was not a Date object");
+          return
+      }
+      // Get the day of the week as a number (0 = Sunday, 1 = Monday, .... 6 = Saturday)
+      var dow = startDate.getDay();
+      var daysToAdd = parseInt(days);
+      // If the current day is Sunday add one day
+      if (dow == 0)
+          daysToAdd++;
+      // If the start date plus the additional days falls on or after the closest Saturday calculate weekends
+      if (dow + daysToAdd >= 6) {
+          //Subtract days in current working week from work days
+          var remainingWorkDays = daysToAdd - (5 - dow);
+          //Add current working week's weekend
+          daysToAdd += 2;
+          if (remainingWorkDays > 5) {
+              //Add two days for each working week by calculating how many weeks are included
+              daysToAdd += 2 * Math.floor(remainingWorkDays / 5);
+              //Exclude final weekend if remainingWorkDays resolves to an exact number of weeks
+              if (remainingWorkDays % 5 == 0)
+                  daysToAdd -= 2;
+          }
+      }
+      startDate.setDate(startDate.getDate() + daysToAdd);
+      return startDate;
+    };
+
+    const months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+
+    const todayDate = new Date();
+    
+    const teslimBaslangicHizli = todayDate;
+    let teslimBaslangicDayHizli = teslimBaslangicHizli.getDate();
+    let teslimBaslangicMonthHizli = months[teslimBaslangicHizli.getMonth()];
+    let teslimBaslangicYearHizli = teslimBaslangicHizli.getFullYear();
+
+    const teslimBitisHizli = addDays(teslimBaslangicHizli, 7);
+    let teslimBitisDayHizli = teslimBitisHizli.getDate();
+    let teslimBitisMonthHizli = months[teslimBitisHizli.getMonth()];
+    let teslimBitisYearHizli = teslimBitisHizli.getFullYear();
+
+    let teslimBaslangicDateHizli = teslimBaslangicDayHizli + " " + teslimBaslangicMonthHizli;
+    let teslimBitisDateHizli = teslimBitisDayHizli + " " + teslimBitisMonthHizli;
+
+    const teslimBaslangic = addWorkDays(todayDate, 33);
+    let teslimBaslangicDay = teslimBaslangic.getDate();
+    let teslimBaslangicMonth = months[teslimBaslangic.getMonth()];
+    let teslimBaslangicYear = teslimBaslangic.getFullYear();
+
+    const teslimBitis = addDays(teslimBaslangic, 7);
+    let teslimBitisDay = teslimBitis.getDate();
+    let teslimBitisMonth = months[teslimBitis.getMonth()];
+    let teslimBitisYear = teslimBitis.getFullYear();
+
+    let teslimBaslangicDate = teslimBaslangicDay + " " + teslimBaslangicMonth;
+    let teslimBitisDate = teslimBitisDay + " " + teslimBitisMonth;
+
+    window.addEventListener('load', function () {
+      var tahminiTeslim = $(".Odeme-RightLine.sepetHizliKargo .Right");
+      var tahminiTeslimBaslik = $(".Odeme-RightLine.sepetHizliKargo .Left");
+      tahminiTeslimBaslik[0].textContent = "Planlanan Teslimat";
+      if (tahminiTeslim[0].textContent === "30 Gün"){
+        //tahminiTeslim[0].innerHTML = "<a href='javascript:void(0)' style='color:#000; text-decoration: none; cursor: text;'>" + teslimBaslangicDate + " - " + teslimBitisDate + "</a>";
+        tahminiTeslim[0].innerHTML = "<a href='/teslimat' style='color:#000; font-weight:600; text-decoration: underline; cursor: pointer;' target='_blank'>30 Gün</a>";
+      };
+      if (tahminiTeslim[0].textContent === "Aynı Gün"){
+        //tahminiTeslim[0].innerHTML = "<a href='javascript:void(0)' style='color:#000; text-decoration: none; cursor: text;'>" + teslimBaslangicDateHizli + " - " + teslimBitisDateHizli + "</a>";
+        tahminiTeslim[0].innerHTML = "<a href='/teslimat' style='color:#000; font-weight:600; text-decoration: underline; cursor: pointer;' target='_blank'>7 Gün</a>";
+      };
+    });
+    
+    ////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+
+    /*****Teknik Detay Tablosu*****/
+    /*$(".ProductDetailMainRow").append($(".teknikDetay")[0]);*/
+    
+    
+        
+    
+    
+    
+    
+  
+
+</script>

@@ -1,0 +1,400 @@
+<table width="700" align="center" cellspacing="0" cellpadding="0" style="background-color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:13px;">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <table cellpadding="0" cellspacing="0" align="center">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table bgcolor="#ffffff" class="es-header-body" align="center" cellpadding="0" cellspacing="0" width="700">
+                                    <tbody>
+                                        <tr>
+                                            <td align="left" style="background-position: center center;  ">
+                                                <!--[if mso]><table width="700" cellpadding="0" cellspacing="0"><tr><td width="350" valign="top"><![endif]-->
+                                                <table cellpadding="0" cellspacing="0" align="center">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                <table cellpadding="0" cellspacing="0" width="600">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="600" align="center" style="border-bottom:35px solid #fff;border-top:40px solid #fff;">
+                                                                                <a target="_blank" href="https://www.romanodizayn.com"> <img src="https://www.romanodizayn.com/Uploads/Images/logo.jpg" style="display: block;" width="154" /> </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <!--[if mso]></td></tr></table><![endif]-->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" align="center">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table bgcolor="#ffffff" align="center" cellpadding="0" cellspacing="0" width="600">
+                                    <tbody>
+                                        <tr>
+                                            <td align="left">
+                                                <table cellpadding="0" cellspacing="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="600" align="center" valign="top">
+                                                                <table cellpadding="0" cellspacing="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="center" style="border-top:1px solid #e5e5e5; padding:30px 0;">
+                                                                                <h2 style="color: #000000; margin:0;padding:0;">Sayın {{MemberName}},</h2>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="center">
+                                                                                <p style="margin:0;padding:0 0 30px 0;"><strong>{{OrderNumber}}</strong> no'lu siparişiniz onaylandı. <br />Siparişiniz ile ilgili detaylara aşağıdan ulaşabilirsiniz.</p>
+                                                                                <div class="tahminiTeslimat"></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" align="center">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table align="center" cellpadding="0" cellspacing="0" width="600">
+                                    <tbody>
+                                        <tr>
+                                            <td align="left">
+                                                <table align="center" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                                                    <thead>
+                                                        <tr align="center">
+                                                            <th width="70px" style="font-weight:500; font-size:12px; padding:5px 0"> ÜRÜN</th>
+                                                            <th width="200px" style="font-weight:500; font-size:12px; padding:5px 0">ÜRÜN ADI</th>
+                                                            <th width="150px" style="font-weight:500; font-size:12px; padding:5px 0">STOK KODU</th>
+                                                            <th width="100px" style="font-weight:500; font-size:12px; padding:5px 0">ADET</th>
+                                                            <th width="100px" style="font-weight:500; font-size:12px; padding:5px 0">TOPLAM ÜRÜN TUTARI</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each Products}}
+                                                        <tr align="center" style=" font-size:12px; font-weight:bold;border-top:1px solid #e5e5e5; ">
+                                                            <td style="padding:15px 0; vertical-align:middle;">
+                                                                <img style="display:block;" height="105" src="{{ImagePath}}" />
+                                                            </td>
+                                                            <td style="vertical-align:middle">{{Name}}</td>
+                                                            <td style="vertical-align:middle">{{StockCode}}</td>
+                                                            <td style="vertical-align:middle">{{Quantity}}</td>
+                                                            <td style="vertical-align:middle">{{TotalAmount}}</td>
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table cellpadding="0" cellspacing="0" align="center">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table align="center" cellpadding="0" cellspacing="0" width="600">
+                                    <tbody>
+                                        <tr>
+                                            <td align="left">
+                                                <table cellpadding="0" cellspacing="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="560" align="center" valign="top">
+                                                                <table cellpadding="0" cellspacing="0" width="100%" style="background-position: center top;">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="right">
+                                                                                <table border="0" cellspacing="1" cellpadding="1" style="width:280px;">
+                                                                                    <tbody>
+                                                                                        {{#if HasShipmentAmount}}
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h4 style="color: #000000; line-height: 200%; font-size:13px; margin:0; padding:0;"><strong>Kargo Ücreti</strong></h4>
+                                                                                            </td>
+                                                                                            <td align="right" style="font-size:13px;">{{ShipmentAmount}}</td>
+                                                                                        </tr>
+                                                                                        {{/if}}
+                                                                                        {{#if HasGiftVoucherAmount}}
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h4 style="color: #000000; line-height: 200%; font-size:13px; margin:0; padding:0;"><strong>Hediye Çeki İndirimi</strong></h4>
+                                                                                            </td>
+                                                                                            <td align="right" style="font-size:13px;">{{GiftVoucherAmount}}</td>
+                                                                                        </tr>
+                                                                                        {{/if}}
+                                                                                        {{#if HasDiscountAmount}}
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h4 style="color: #000000; line-height: 200%; font-size:13px; margin:0; padding:0;"><strong>İndirimler</strong></h4>
+                                                                                            </td>
+                                                                                            <td align="right" style="font-size:13px;">{{DiscountAmount}}</td>
+                                                                                        </tr>
+                                                                                        {{/if}}
+                                                                                        {{#if HasPayAtTheDoorAmount}}
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h4 style="color: #000000; line-height: 200%; font-size:13px; margin:0; padding:0;"><strong>Kapıda Ödeme Tutarı</strong></h4>
+                                                                                            </td>
+                                                                                            <td align="right" style="font-size:13px;">{{PayAtTheDoorAmount}}</td>
+                                                                                        </tr>
+                                                                                        {{/if}}
+                                                                                        {{#if HasTotalVatAmount}}
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h4 style="color: #000000; line-height: 200%; font-size:13px; margin:0; padding:0;"><strong>KDV</strong></h4>
+                                                                                            </td>
+                                                                                            <td align="right" style="font-size:13px;">{{TotalVatAmount}}</td>
+                                                                                        </tr>
+                                                                                        {{/if}}
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h4 style="color: #000000; line-height: 200%; font-size:13px; margin:0; padding:0;"><strong>Genel Toplam</strong></h4>
+                                                                                            </td>
+                                                                                            <td align="right" style="font-size:13px;">{{TotalAmount}}</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" style="padding:40px 0; background-color:#fff;">
+                                                                <a href="http://{{Domain}}/Hesabim.aspx#/Siparislerim" style="background-color:#000; color:#FFF; font-weight:400; font-size:14px;border-radius:20px; text-decoration:none; width:auto;
+
+display:inline-block; "><span style="line-height:40px; font-size:14px; padding-left:50px; padding-right:50px;">SİPARİŞLERİM</span></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" style="padding-bottom:40px;">
+                                                <!--[if mso]><table width="600" cellpadding="0" cellspacing="0"><tr><td width="300" valign="top"><![endif]-->
+                                                <table cellspacing="0" cellpadding="0" align="left">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="270" align="center" style="background-color:#eeeeee; font-size:12px; padding:10px;">
+                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <strong style="line-height: 200%; font-size:13px;">Fatura Adresi</strong>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="115" style="line-height: 200%; font-size:13px;"><strong>Adı Soyadı</strong></td>
+                                                                            <td width="115" style="font-size:13px;">{{InvoiceAddress.Name}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="115" style="line-height: 200%; font-size:13px;"><strong>Telefon</strong></td>
+                                                                            <td width="115" style="font-size:13px;">{{InvoiceAddress.Gsm}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="115" style="line-height: 200%; font-size:13px;"><strong>Adres</strong></td>
+                                                                            <td width="115" style="font-size:13px;">
+                                                                                {{InvoiceAddress.Address}}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <!--[if mso]></td><td width="20"></td><td width="270" valign="top"><![endif]-->
+                                                <table cellspacing="0" cellpadding="0" align="right">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="270" align="center" style="background-color:#eeeeee; font-size:12px; padding:10px;">
+                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <strong style="line-height: 200%; font-size:13px;">Kargo Adresi</strong>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="115" style="line-height: 200%; font-size:13px;"><strong>Adı Soyadı</strong></td>
+                                                                            <td width="115" style="font-size:13px;">{{ShipmentAddress.Name}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="115" style="line-height: 200%; font-size:13px;"><strong>Telefon</strong></td>
+                                                                            <td width="115" style="font-size:13px;">{{ShipmentAddress.Gsm}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="115" style="line-height: 200%; font-size:13px;"><strong>Adres</strong></td>
+                                                                            <td width="115" style="font-size:13px;">
+                                                                                {{ShipmentAddress.Address}}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <!--[if mso]></td></tr></table><![endif]-->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table cellpadding="0" cellspacing="0" align="center" style="background-color:#eeeeee; padding:20px; margin-bottom:20px;" width="600">
+                    <tbody>
+                        <tr>
+                            <td width="600" style="text-align:center;" colspan="2">
+                                <strong>Sipariş Özeti</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 0; font-size:13px;"><strong>Sipariş No</strong></td>
+                            <td style="padding:10px 0; font-size:13px;">{{OrderNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 0; font-size:13px;"><strong>Sipariş Tarihi</strong></td>
+                            <td style="padding:10px 0; font-size:13px;">{{OrderDate}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 0; font-size:13px;"><strong>Ödeme Tipi</strong></td>
+                            <td style="padding:10px 0; font-size:13px;">{{PaymentType}}</td>
+                        </tr>
+                        {{#if (eq PaymentTypeId 1) }}
+                        <tr>
+                            <td style="padding:10px 0; font-size:13px;"><strong>Banka Adı</strong></td>
+                            <td style="padding:10px 0; font-size:13px;">{{Bank}}</td>
+                        </tr>
+                        {{/if}}
+                        {{#if (eq PaymentTypeId 0) }}
+                        <tr>
+                            <td style="padding:10px 0; font-size:13px;"><strong>Banka Adı</strong></td>
+                            <td style="padding:10px 0; font-size:13px;">{{Bank}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 0; font-size:13px;"><strong>Taksit Sayısı</strong></td>
+                            <td style="padding:10px 0; font-size:13px;">{{Installment}}</td>
+                        </tr>
+                        {{/if}}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    ///////PLANLANAN TESLİMAT ARALIĞI////////
+    /////////////////////////////////////////
+    function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+    };
+
+    function addWorkDays(startDate, days) {
+    if(isNaN(days)) {
+        console.log("Value provided for \"days\" was not a number");
+        return
+    }
+    if(!(startDate instanceof Date)) {
+        console.log("Value provided for \"startDate\" was not a Date object");
+        return
+    }
+    // Get the day of the week as a number (0 = Sunday, 1 = Monday, .... 6 = Saturday)
+    var dow = startDate.getDay();
+    var daysToAdd = parseInt(days);
+    // If the current day is Sunday add one day
+    if (dow == 0)
+        daysToAdd++;
+    // If the start date plus the additional days falls on or after the closest Saturday calculate weekends
+    if (dow + daysToAdd >= 6) {
+        //Subtract days in current working week from work days
+        var remainingWorkDays = daysToAdd - (5 - dow);
+        //Add current working week's weekend
+        daysToAdd += 2;
+        if (remainingWorkDays > 5) {
+            //Add two days for each working week by calculating how many weeks are included
+            daysToAdd += 2 * Math.floor(remainingWorkDays / 5);
+            //Exclude final weekend if remainingWorkDays resolves to an exact number of weeks
+            if (remainingWorkDays % 5 == 0)
+                daysToAdd -= 2;
+        }
+    }
+    startDate.setDate(startDate.getDate() + daysToAdd);
+    return startDate;
+    };
+
+    const months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+
+    const todayDate = new Date();
+    
+    let saat = todayDate.getHours();
+    let dakika = todayDate.getMinutes();
+    let saniye = todayDate.getSeconds();
+
+    let zaman = saat + "." + dakika + "." + saniye;
+
+    const teslimBaslangicHizli = todayDate;
+    let teslimBaslangicDayHizli = teslimBaslangicHizli.getDate();
+    let teslimBaslangicMonthHizli = months[teslimBaslangicHizli.getMonth()];
+    let teslimBaslangicYearHizli = teslimBaslangicHizli.getFullYear();
+
+    const teslimBitisHizli = addDays(teslimBaslangicHizli, 7);
+    let teslimBitisDayHizli = teslimBitisHizli.getDate();
+    let teslimBitisMonthHizli = months[teslimBitisHizli.getMonth()];
+    let teslimBitisYearHizli = teslimBitisHizli.getFullYear();
+
+    let teslimBaslangicDateHizli = teslimBaslangicDayHizli + " " + teslimBaslangicMonthHizli;
+    let teslimBitisDateHizli = teslimBitisDayHizli + " " + teslimBitisMonthHizli;
+
+    const teslimBaslangic = addWorkDays(todayDate, 33);
+    let teslimBaslangicDay = teslimBaslangic.getDate();
+    let teslimBaslangicMonth = months[teslimBaslangic.getMonth()];
+    let teslimBaslangicYear = teslimBaslangic.getFullYear();
+
+    const teslimBitis = addDays(teslimBaslangic, 7);
+    let teslimBitisDay = teslimBitis.getDate();
+    let teslimBitisMonth = months[teslimBitis.getMonth()];
+    let teslimBitisYear = teslimBitis.getFullYear();
+
+    let teslimBaslangicDate = teslimBaslangicDay + " " + teslimBaslangicMonth;
+    let teslimBitisDate = teslimBitisDay + " " + teslimBitisMonth;
+
+    var tahminiTeslim = document.getElementsByClassName("tahminiTeslimat");
+    tahminiTeslim[0].innerHTML = "<span style='color:#000; font-weight:600'>Planlanan Teslimat: " + teslimBaslangicDate + " - " + teslimBitisDate + "</span>";
+    ////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+</script>

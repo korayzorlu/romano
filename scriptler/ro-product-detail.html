@@ -1,0 +1,496 @@
+<script>
+  gtag("event", "page_view", {
+    send_to: "AW-1052636102",
+    ecomm_pagetype: "product",
+    ecomm_prodid: "{URUN_ID}",
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(".secenekAdi").html("<span>Yatak Ölçüsü Seçiniz</span>");
+  });
+</script>
+
+<!--Costumer Images Modal-->
+<div id="myModal" class="modal" onclick="closeModal()">
+  <span class="close" onclick="closeModalX()">&times;</span>
+  <div class="modal-content" id="img01">
+    <div class="roma-carousel-wrap withModal">
+      <div class="owl-carousel roma withModal">
+      </div>
+    </div>
+  </div>
+  <div id="caption"></div>
+</div>
+
+
+
+<script>
+  $(document).ready(function () {
+    //console.log($(".useName span")[0].textContent);
+    /*
+    if ($("#IlgiliUrunDiv").length > 0) {
+      var ilgiliUrunBlock = document.getElementById("IlgiliUrunDiv");
+      var topListBlock = document.getElementsByClassName("TopList")[0];
+      topListBlock.appendChild(ilgiliUrunBlock);
+    }
+
+    const sourceLinkListBlock = document.getElementsByClassName("ItemV3_Name");
+    const targetLinkListBlock = document.getElementsByClassName("ItemV3_col1");
+    for (let i = 0; i < sourceLinkListBlock.length; i++) {
+      var sourceLink = sourceLinkListBlock[i].getElementsByTagName("a")[0].getAttribute("href");
+      var targetLink = targetLinkListBlock[i].getElementsByClassName("productImage")[0].getElementsByTagName("a")[0];
+      targetLink.setAttribute("href", sourceLink);
+    }
+    */
+
+
+    /*
+    const productImageList = document.getElementsByClassName("AltImgCapSmallImg");
+    var lastImageBlock = productImageList[productImageList.length - 1]
+    var lastImage = productImageList[productImageList.length - 1].getElementsByTagName("img")[0].getAttribute("src");
+    
+    $("#ProductDetailMain").append('<img class="costumerImage" src=' + lastImage + '>');
+
+    console.log(lastImage);
+    */
+
+    /*****Sosyal Medya Görselleri*****/
+    if (windowidth < 1041) {
+      var productImageListBlockMain = $("#divMobileImageList .owl-stage")[0];
+      const productImageListBlock = $("#divMobileImageList .owl-item");
+      const productImageList = $("#divMobileImageList .owl-item .lightItem img");
+      const buttonBlock = $("#divMobileImageList .owl-dot");
+      $("#ProductDetailMain").append('<div class="roma-carousel-wrap inPage" id="musteriFoto"><div class="roma-carousel-title"><span>Müşteri Fotoğrafları</span><i class="fas fa-thumbs-up"></i></div><div class="owl-carousel roma inPage"></div></div>');
+
+      
+      for(let i = 0; i < productImageList.length; i++) {
+        if(productImageList[i].getAttribute("alt") === "sosyalmedya"){
+          var indexStop = i;
+          break;
+        };
+      }; 
+      const imageAltList = []
+      for(let i = 0; i < productImageList.length; i++) {
+        imageAltList.push(productImageList[i].getAttribute("alt"));
+        if(productImageList[i].getAttribute("alt") === "sosyalmedya"){
+          imageSrc = productImageList[i].getAttribute("src");
+          console.log(imageSrc);
+          buttonBlock[i].style.display = "none";
+          $(".roma-carousel-wrap.inPage .owl-carousel.roma").append('<div class="item roma"><img class="costumerImage costumerImageMobil" src=' + imageSrc + '></div>');
+          $(".roma-carousel-wrap.withModal .owl-carousel.roma").append('<div class="item roma"><img class="costumerImage costumerImageMobil" src=' + imageSrc + '></div>');
+          $("#divMobileImageList").trigger('remove.owl.carousel', [indexStop]);
+          $("#divMobileImageList").trigger("refresh.owl.carousel");
+        };
+      };
+      function checkSosyalMedya(social) {
+        return social === "sosyalmedya";
+      };
+      if(imageAltList.some(checkSosyalMedya) === true){
+        /***** Müşteri Fotoğraflarına Giden Buton *****/
+        //$(".BottomList").prepend("<a class='musteriFotoButonBlock' href='#musteriFoto'><span>Müşteri Fotoğrafları</span><i class='fas fa-camera'></i></a>");
+        $(".UrunKargoBedava").after("<a class='musteriFotoButonBlock' href='#musteriFoto'><i class='fas fa-camera'></i><div><span class='textUst'>Müşteri</span><span class='textAlt'>Fotoğrafları</span></div></a>");
+
+      };
+
+
+      /*var newImageSlider = $(".mobileImageSlider.owl-loaded.owl-carousel.owl-drag").clone(true);
+      $("#ProductDetailMain").append(newImageSlider);*/
+      
+
+    } else {
+      const productImageListBlock = $(".AltImgCapSmallImg");
+      const productImageList = $(".AltImgCapSmallImg img");
+      
+      if (window.location.href === "https://www.romanodizayn.com/test-gardirop"){
+        $("#ProductDetailMain").append("<div class='newTeknikDetay'><span>Teknik Özellikler</span></div>");
+        $(".newTeknikDetay").append($(".teknikDetay"));
+      };
+      $("#ProductDetailMain").append('<div class="roma-carousel-wrap inPage" id="musteriFoto"><div class="roma-carousel-title"><span>Müşteri Fotoğrafları</span><i class="fas fa-thumbs-up"></i></div><div class="owl-carousel roma inPage"></div></div>');
+      const imageAltList = []
+      for(let i = 0; i < productImageList.length; i++) {
+        imageAltList.push(productImageList[i].getAttribute("alt"));
+        if(productImageList[i].getAttribute("alt") === "sosyalmedya"){
+          var imageSrc = productImageList[i].getAttribute("src");
+          var imageZoomSrcGet = productImageList[i].dataset.cloudzoom;
+          var imageZoomSrc = JSON.parse(imageZoomSrcGet);
+          productImageListBlock[i].remove();
+          var zoomImageJSON = { "easeTime" : 0 , "galleryFade" : false, "animationTime" : 0, "useZoom" : "#imgUrunResim" , "image" : imageSrc, "zoomImage" : imageSrc };
+          var zoomImageJSON = {"easeTime" : 0 , "galleryFade" : false,"animationTime" : 0 , "zoomImage": imageZoomSrc["image"], "zoomSizeMode" : 'image' , "zoomPosition": "inside", "zoomOffsetX":0, "image" : imageZoomSrc["image"]};
+         
+          $(".roma-carousel-wrap.inPage .owl-carousel.roma").append('<div class="item roma"><img class="costumerImage" id="imgUrunResim" src=' + imageSrc + ' data-cloudzoom= ' + JSON.stringify(zoomImageJSON) + '></div>');
+          $(".roma-carousel-wrap.withModal .owl-carousel.roma").append('<div class="item roma"><img class="costumerImage" id="imgUrunResim" src=' + imageZoomSrc["image"] + ' data-cloudzoom= ' + JSON.stringify(zoomImageJSON) + '></div>');
+
+        };
+      };
+      function checkSosyalMedya(social) {
+        return social === "sosyalmedya";
+      };
+      if(imageAltList.some(checkSosyalMedya) === true){
+        /***** Müşteri Fotoğraflarına Giden Buton *****/
+        //$(".BottomList").prepend("<a class='musteriFotoButonBlock' href='#musteriFoto'><span>Müşteri Fotoğrafları</span><i class='fas fa-camera'></i></a>");
+        $(".UrunKargoBedava").after("<a class='musteriFotoButonBlock' href='#musteriFoto'><i class='fas fa-camera'></i><div><span class='textUst'>Müşteri</span><span class='textAlt'>Fotoğrafları</span></div></a>");
+
+      };
+      
+      
+    };
+
+    $(".roma-carousel-wrap.inPage .owl-carousel.roma").owlCarousel({
+      lazyLoad:true,
+      loop: false,
+      margin: 10,
+      nav: true,
+      navText: [
+          '<i class="fal fa-chevron-left"></i>',
+        '<i class="fal fa-chevron-right"></i>'
+      ],
+      autoplay: false,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 4
+        }
+      }
+    });
+
+    $(".roma-carousel-wrap.withModal .owl-carousel.roma").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      rewind: true,
+      center: true,
+      navText: [
+          '<i class="fal fa-chevron-left"></i>',
+        '<i class="fal fa-chevron-right"></i>'
+      ],
+      autoplay: false,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    });
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = $(".roma-carousel-wrap.inPage .costumerImage");
+    var imgMobil = $(".roma-carousel-wrap.inPage .costumerImageMobil");
+    if(img.length === 0){
+      $(".roma-carousel-wrap").remove();
+    };
+    
+    for(let i = 0; i < img.length; i++){
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+      
+      img[i].onclick = function(){
+        modal.style.display = "block";
+        $(".roma-carousel-wrap.withModal .owl-carousel").trigger("to.owl.carousel", i);
+        /*captionText.innerHTML = this.alt;*/
+      };
+    };
+
+    for(let i = 0; i < imgMobil.length; i++){
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+      
+      imgMobil[i].onclick = function(){
+        modal.style.display = "block";
+        $(".roma-carousel-wrap.withModal .owl-carousel").trigger("to.owl.carousel", i);
+        /*captionText.innerHTML = this.alt;*/
+      };
+    };
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    closeModal = function() {
+      if(windowidth < 1041){
+        var senderElementName = event.target.className;
+        if(senderElementName === 'owl-next' || senderElementName === 'owl-prev' || senderElementName === 'fal fa-chevron-right' || senderElementName === 'fal fa-chevron-left') {
+          console.log("nebu")
+        } else {
+          modal.style.display = "none";
+          
+        }
+      } else{
+        var senderElementName = event.target.className;
+        if(senderElementName === 'item roma' || senderElementName === 'roma-carousel-wrap withModal' || senderElementName === 'owl-stage') {
+          modal.style.display = "none";
+        } else {
+          console.log("nebu")
+        }
+        
+      }
+      
+    };
+
+    closeModalX = function() {
+        modal.style.display = "none";
+    };
+    
+    /*keyboard navigation*/
+    $(document.documentElement).keyup(function(event) {    
+      if (event.keyCode == 37) { /*left key*/
+        $(".roma-carousel-wrap.withModal .owl-carousel.roma").trigger('prev.owl.carousel', [700]);
+      } else if (event.keyCode == 39) { /*right key*/
+        $(".roma-carousel-wrap.withModal .owl-carousel.roma").trigger('next.owl.carousel', [700]);
+      }
+    });
+
+
+
+    /*onclick="window.zoom.V1.clickPreviweImage()"*/
+
+    /*****Ürün Puan Düzenlemesi*****/
+    var productPoint = $(".PuanVerSag")[0].innerHTML;
+    $(".PuanVerSag")[0].innerHTML = productPoint[0] + productPoint[1] + productPoint[2] + productPoint[3];
+    if (productPoint[1] === "0") {
+      $(".PuanVerSag")[0].style = "display: none;";
+    };
+
+
+    //var ozelAlan4 = document.getElementById("divOzelAlan4");
+    //var topListBlock = document.getElementsByClassName("TopList")[0];
+    //topListBlock.insertBefore(ozelAlan4, topListBlock.children[4]);
+
+    ///////PLANLANAN TESLİMAT ARALIĞI////////
+    /////////////////////////////////////////
+    function addDays(date, days) {
+      var result = new Date(date);
+      result.setDate(result.getDate() + days);
+      return result;
+    };
+
+    function addWorkDays(startDate, days) {
+      if(isNaN(days)) {
+          console.log("Value provided for \"days\" was not a number");
+          return
+      }
+      if(!(startDate instanceof Date)) {
+          console.log("Value provided for \"startDate\" was not a Date object");
+          return
+      }
+      // Get the day of the week as a number (0 = Sunday, 1 = Monday, .... 6 = Saturday)
+      var dow = startDate.getDay();
+      var daysToAdd = parseInt(days);
+      // If the current day is Sunday add one day
+      if (dow == 0)
+          daysToAdd++;
+      // If the start date plus the additional days falls on or after the closest Saturday calculate weekends
+      if (dow + daysToAdd >= 6) {
+          //Subtract days in current working week from work days
+          var remainingWorkDays = daysToAdd - (5 - dow);
+          //Add current working week's weekend
+          daysToAdd += 2;
+          if (remainingWorkDays > 5) {
+              //Add two days for each working week by calculating how many weeks are included
+              daysToAdd += 2 * Math.floor(remainingWorkDays / 5);
+              //Exclude final weekend if remainingWorkDays resolves to an exact number of weeks
+              if (remainingWorkDays % 5 == 0)
+                  daysToAdd -= 2;
+          }
+      }
+      startDate.setDate(startDate.getDate() + daysToAdd);
+      return startDate;
+    };
+
+    const months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+
+    const todayDate = new Date();
+    
+    const teslimBaslangicHizli = todayDate;
+    let teslimBaslangicDayHizli = teslimBaslangicHizli.getDate();
+    let teslimBaslangicMonthHizli = months[teslimBaslangicHizli.getMonth()];
+    let teslimBaslangicYearHizli = teslimBaslangicHizli.getFullYear();
+
+    const teslimBitisHizli = addDays(teslimBaslangicHizli, 7);
+    let teslimBitisDayHizli = teslimBitisHizli.getDate();
+    let teslimBitisMonthHizli = months[teslimBitisHizli.getMonth()];
+    let teslimBitisYearHizli = teslimBitisHizli.getFullYear();
+
+    let teslimBaslangicDateHizli = teslimBaslangicDayHizli + " " + teslimBaslangicMonthHizli;
+    let teslimBitisDateHizli = teslimBitisDayHizli + " " + teslimBitisMonthHizli;
+
+    const teslimBaslangic = addWorkDays(todayDate, 33);
+    let teslimBaslangicDay = teslimBaslangic.getDate();
+    let teslimBaslangicMonth = months[teslimBaslangic.getMonth()];
+    let teslimBaslangicYear = teslimBaslangic.getFullYear();
+
+    const teslimBitis = addDays(teslimBaslangic, 7);
+    let teslimBitisDay = teslimBitis.getDate();
+    let teslimBitisMonth = months[teslimBitis.getMonth()];
+    let teslimBitisYear = teslimBitis.getFullYear();
+
+    let teslimBaslangicDate = teslimBaslangicDay + " " + teslimBaslangicMonth;
+    let teslimBitisDate = teslimBitisDay + " " + teslimBitisMonth;
+
+    
+
+
+    //$(".dateTest").append("<span>" + teslimBaslangicDate + " - " + teslimBitisDate + "</span>");
+    
+    var tahminiTeslim = $("#spnTahminiTeslimSuresi");
+    var tahminiTeslimBaslik = $("#divTahminiTeslimatSuresi .left_line.lineTitle");
+    //tahminiTeslimBaslik[0].innerHTML = "Planlanan Teslimat";
+    if (tahminiTeslim[0].innerHTML === "30 Gün"){
+      //tahminiTeslim[0].innerHTML = "<a href='javascript:void(0)' style='color:#000; text-decoration: none; cursor: text;'>" + teslimBaslangicDate + " - " + teslimBitisDate + "</a>";
+      tahminiTeslim[0].innerHTML = "<a href='/teslimat' style='color:#000; font-weight:600; text-decoration: underline; cursor: pointer;' target='_blank'>30 Gün</a>";
+    };
+    if (tahminiTeslim[0].innerHTML === "Aynı Gün"){
+      //tahminiTeslim[0].innerHTML = "<a href='javascript:void(0)' style='color:#000; text-decoration: none; cursor: text;'>" + teslimBaslangicDateHizli + " - " + teslimBitisDateHizli + "</a>";
+      tahminiTeslim[0].innerHTML = "<a href='/teslimat' style='color:#000; font-weight:600; text-decoration: underline; cursor: pointer;' target='_blank'>7 Gün</a>";
+    };
+    ////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+
+    /*****Teknik Detay Tablosu*****/
+    /*$(".ProductDetailMainRow").append($(".teknikDetay")[0]);*/
+
+    /*****Varyasyon Tablosu Açıklamaya Ekleme*****/
+    if(window.location.href === "https://romanodizayn.ticimaxtest.com/test-karyola-varyasyonlu"){//test sayfası için(daha sonra kaldır)
+      var varOlcuBlock = $("#divUrunEkSecenek").clone(true);
+      $(".targetOlcuBlock").append(varOlcuBlock);
+      $(".targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box").append("<span></span>");
+      const urundekiVaryantlarBlock = $(".targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box span");
+      const urundekiVaryantlar = $(".targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box");
+      for(let i = 0; i < urundekiVaryantlar.length; i++){
+        urundekiVaryantlarBlock[i].append(urundekiVaryantlar[i].getAttribute("title"));
+      };
+    }
+    
+    /***** Son Ziyaret Edilen Ürünler Slider Ayar *****/
+    window.addEventListener('load', function () {//bu fonksyion sayfa yüklendikten sonra kodun işlemesini sağlar
+      $('.ulUrunSlider.sliderOpacity.owl-loaded.owl-carousel.owl-drag').data('owl.carousel').options.responsive = {0: {items: 2},600: {items: 3},1000: {items: 5}};
+      $(".ulUrunSlider.sliderOpacity.owl-loaded.owl-carousel.owl-drag").trigger("refresh.owl.carousel");
+      /////ÜRÜN KARTINA LİNK EKLEME/////
+      const productLinkBlock = $(".detailLink.detailUrl");
+      const productItemBlock = $(".productDetail");
+      for(let i = 0; i < productLinkBlock.length; i++){
+        var productLink = productLinkBlock[i].getAttribute("href");
+        productItemBlock[i].setAttribute("onclick", "window.location='"+ productLink +"'");
+      };
+      if(windowidth < 768){
+        $("#divSonZiyaretEdilenUrunler").prepend('<div class="JKatAdi"><span class="bold"><span class="satir1">Son Ziyaret Edilen Ürünler</span></span></div>');
+      }
+    });
+    
+    /***** Benzer Ürünler Slider Ayar *****/
+    $("#BenzerUrunDiv .satir1")[0].textContent = "Bunları da Beğenebilirsiniz";
+
+    
+    
+
+
+  });
+
+
+  //$(".ticiBottomBlockContent").prepend($(".roma-carousel-wrap.inPage"));
+
+
+
+</script>
+
+<style>
+  * {scroll-behavior: smooth!important;}
+  .detayBottom #divOzelAlan4{display: none;}
+  #divOzelAlan4{float: left;text-align: center;border-radius: 5px;margin: 5px;background: #fff6e0; position: unset; top:0; height: 100%; padding: 7px 11px;}
+  #divOzelAlan4 .left_line{clear: left;line-height: 16px;color: #f67710;font-family: brandon_textmedium;margin-bottom: 5px;}
+  #divOzelAlan4 .right_line{display: inline-block;vertical-align: top;color: #181516;font-size: 14px;font-family: brandon_textmedium;line-height: 16px;}
+  .KatSepetFiyat .sptPrice{font-size: 20px;}
+  .newTeknikDetay > span{font-size: 28px; font-weight: 600; font-family: brandon_textbold;}
+  .targetOlcuBlock #divUrunEkSecenek{margin-bottom: 20px;}
+  .targetOlcuBlock #divUrunEkSecenek .ekSecenekBilgi{display: none; justify-content: center;}
+  .targetOlcuBlock #divUrunEkSecenek .eksecenekLine{flex-direction: row; justify-content: center;}
+  .targetOlcuBlock #divUrunEkSecenek .eksecenekLine .left_line{display: none;}
+  .targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box{width: 150px; margin-right: 10px;}
+  .targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box span{font-size: 20px; position: absolute; display: inline-block; bottom: 50px; width: 100%; left: 0;}
+  .targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box:hover .productItemOnizleme{display: none;}
+  .targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box.selected:after{border: 2px solid #f67710; background-size: 40px!important;}
+  /*.musteriFotoButonBlock{font-size: 17px; color: #000; font-family: brandon_textregular; font-weight: 600;}
+  .musteriFotoButonBlock span{margin-right: 10px;}*/
+  .musteriFotoButonBlock{font-size: 17px;float: left;text-align: center;border-radius: 5px;margin: 5px;background: #fff6e0;display: flex;font-family: brandon_textmedium;font-size: 14px;padding: 9px 5px;max-width: 110px;line-height: 16px;min-width: 85px;text-align: left;gap: 5px;}
+  .musteriFotoButonBlock i{display: flex;font-size: 16px;flex-direction: column;justify-content: center; color: #000;}
+  .musteriFotoButonBlock div{display: flex; flex-direction: column;}
+  .musteriFotoButonBlock div .textUst{color: #f67710;}
+  .musteriFotoButonBlock div .textAlt{color: #181516;}
+
+  @media screen and (max-width: 768px){
+    .searchClick{left: 62px;}
+    #logo .logo{width: 130px;}
+    .KatSepetFiyat .sptPrice{font-size: 16px;}
+    .mobilMenuAcButton img{top: 16px; height: 22px;}
+    #divIcerik{padding:0; margin: 0;}
+    .targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box{width: 100px; min-height: auto; left: calc((100% - 320px) / 2);}
+    .targetOlcuBlock #divUrunEkSecenek .eksecenekLine.resimlivaryasyon .right_line .size_box span{font-size: 15px; bottom: 40px;}
+    #divKargoBedava{margin: 0 10px 0 0;}
+    .musteriFotoButonBlock{min-width: 30px;font-size: 12px;line-height: 14px;padding: 7px 10px 6px 8px; margin: 0;}
+    
+  }
+
+
+
+
+
+
+  #imgUrunResimm:hover {opacity: 0.7;}
+
+  /* The Modal (background) */
+  .modal {display: none; /* Hidden by default */position: fixed; /* Stay in place */z-index: 99; /* Sit on top */padding-top: 0; /* Location of the box */left: 0;top: 0;width: 100%; /* Full width */height: 100%; /* Full height */overflow: none; /* Enable scroll if needed */background-color: rgb(0,0,0); /* Fallback color */background-color: rgba(0,0,0,0.9); /* Black w/ opacity */}
+
+  /* Modal Content (image) */
+  .modal-content {margin: auto;display: block;max-height: 100%; /*max-width: 70%;*/}
+
+  /* Caption of Modal Image */
+  #caption {margin: auto;display: block;width: 80%;max-width: 700px;text-align: center;color: #ccc;padding: 10px 0;height: 150px;}
+
+  
+  /* Add Animation */
+  /*
+  .modal-content, #caption { -webkit-animation-name: zoom;-webkit-animation-duration: 0.6s;animation-name: zoom;animation-duration: 0.6s;}
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  */
+
+  /* The Close Button */
+  .close {position: absolute;top: 15px;right: 35px;color: #f1f1f1;font-size: 40px;font-weight: bold;transition: 0.3s; z-index: 9;}
+
+  .close:hover, .close:focus {color: #bbb;text-decoration: none;cursor: pointer;}
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 768px){
+    .modal-content {max-width: 100%;}
+    .roma-carousel-wrap{padding: 0;}
+  }
+</style>
+
+
+<!--<span class="left_line lineTitle">Hızlı</span><br><span class="right_line">Teslimat</span>-->
+
+

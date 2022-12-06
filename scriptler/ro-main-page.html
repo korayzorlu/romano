@@ -1,0 +1,34 @@
+<script>
+
+  $(".rocat-carousel-wrap .owl-carousel.rocat").owlCarousel({
+    loop: false,
+    margin: 10,
+    nav: false,
+    dragBeforeAnimFinish: false,
+    navText: [
+        '<i class="fal fa-chevron-left"></i>',
+      '<i class="fal fa-chevron-right"></i>'
+    ],
+    autoplay: false,
+    autoplayHoverPause: false,
+    responsive: {
+      0: {
+        items: 4
+      },
+      600: {
+        items: 4
+      },
+      1000: {
+        items: 8
+      }
+    }
+  });
+</script>
+
+<style>
+    body{padding: 0!important;}
+    #divIcerik{padding:0;}
+    @media screen and (max-width: 768px){
+        #divIcerik{margin: 0;}
+      }
+</style>

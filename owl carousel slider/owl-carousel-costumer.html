@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Carousel</title>
+
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+   
+
+      .roma-carousel-wrap {padding: 10px;width: 100%;position: relative;cursor: pointer; }
+      .roma-carousel-wrap.inPage{pointer-events: none;}
+      .roma-carousel-wrap.inPage .owl-carousel{pointer-events: auto;}
+      .roma-carousel-wrap.withModal{display: inline-block;}
+      .roma-carousel-wrap.withModal .owl-carousel.owl-loaded{}
+      .roma-carousel-wrap.inPage .owl-item{max-width: 165px;}
+      /* fix blank or flashing items on carousel */
+      .roma-carousel-wrap .owl-carousel.roma .item.roma {position: relative;z-index: 100; -webkit-backface-visibility: hidden; }
+      .roma-carousel-wrap.withModal .owl-carousel.roma .item.roma img{}
+      /* end fix */
+      .roma-carousel-wrap .owl-nav {right: 0; margin-top: 0;position: absolute;top: -45px;color: #000; left: auto; display: flex!important;}
+      .roma-carousel-wrap.withModal .owl-nav{top: 50%;width: 100%;justify-content: space-between;}
+      .roma-carousel-wrap .owl-nav i {font-size: 15px;font-weight: 400;}
+      .roma-carousel-wrap .owl-carousel.roma .owl-nav .owl-prev {padding: 8px 13px!important;border-radius: 50%;margin: 0 10px}
+      .roma-carousel-wrap .owl-carousel.roma .owl-nav .owl-next {padding: 8px 13px!important;border-radius: 50%;}
+      .roma-carousel-title{padding: 20px 0;}
+      .roma-carousel-title span{font-size: 15px; font-weight: 600;}
+
+
+      #imgUrunResimm:hover {opacity: 0.7;}
+
+      /* The Modal (background) */
+      .modal {display: none; /* Hidden by default */position: fixed; /* Stay in place */z-index: 99; /* Sit on top */padding-top: 0; /* Location of the box */left: 0;top: 0;width: 100%; /* Full width */height: 100%; /* Full height */overflow: none; /* Enable scroll if needed */background-color: rgb(0,0,0); /* Fallback color */background-color: rgba(0,0,0,0.9); /* Black w/ opacity */}
+
+      /* Modal Content (image) */
+      .modal-content {margin: auto;display: block;max-height: 90%; max-width: 70%;}
+
+      /* Caption of Modal Image */
+      #caption {margin: auto;display: block;width: 80%;max-width: 700px;text-align: center;color: #ccc;padding: 10px 0;height: 150px;}
+
+      
+      /* Add Animation */
+      /*
+      .modal-content, #caption { -webkit-animation-name: zoom;-webkit-animation-duration: 0.6s;animation-name: zoom;animation-duration: 0.6s;}
+
+      @-webkit-keyframes zoom {
+        from {-webkit-transform:scale(0)} 
+        to {-webkit-transform:scale(1)}
+      }
+
+      @keyframes zoom {
+        from {transform:scale(0)} 
+        to {transform:scale(1)}
+      }
+      */
+
+      /* The Close Button */
+      .close {position: absolute;top: 15px;right: 35px;color: #f1f1f1;font-size: 40px;font-weight: bold;transition: 0.3s;}
+
+      .close:hover, .close:focus {color: #bbb;text-decoration: none;cursor: pointer;}
+
+      /* 100% Image Width on Smaller Screens */
+      @media only screen and (max-width: 768px){
+        .modal-content {max-width: 100%;}
+        .roma-carousel-wrap{padding: 0;}
+      }
+          
+    </style>
+    
+   
+    <!--Costumer Images Modal-->
+    <div id="myModal" class="modal" onclick="closeModal()">
+      <span class="close" onclick="closeModalX()">&times;</span>
+      <div class="modal-content" id="img01">
+        <div class="roma-carousel-wrap withModal">
+          <div class="owl-carousel roma withModal">
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-karyola-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-makyaj-masasi-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-sifonyer-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-tv-unitesi-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-komodin-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-kanepe-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-sehpa-bnn3.png" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-konsol-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-koltuk-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-kitaplik-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-calisma-masasi-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-gardirop-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-paravan-bnn2.jpg" /></div>
+            <div class="item roma"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-puf-bnn2.jpg" /></div>
+          </div>
+        </div>
+      </div>
+      <div id="caption"></div>
+    </div>
+
+    <div class="roma-carousel-wrap inPage">
+        <div class="roma-carousel-title">
+            <span>Tarzını Paylaş</span>
+            <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="owl-carousel roma inPage">
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-karyola-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-makyaj-masasi-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-sifonyer-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-tv-unitesi-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-komodin-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-kanepe-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-sehpa-bnn3.png" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-konsol-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-koltuk-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-kitaplik-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-calisma-masasi-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-gardirop-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-paravan-bnn2.jpg" /></div>
+          <div class="item roma"><img class="myBtn" src="https://www.romanodizayn.com/Uploads/EditorUploads/hazeran-puf-bnn2.jpg" /></div>
+        </div>
+      </div>
+
+      <script>
+        $(".roma-carousel-wrap.inPage .owl-carousel.roma").owlCarousel({
+          lazyLoad: true,
+          loop: false,
+          margin: 10,
+          nav: true,
+          rewind: true,
+          //stagePadding: 50,
+          //dragEndSpeed: 10,
+          navText: [
+              '<i class="fal fa-chevron-left"></i>',
+            '<i class="fal fa-chevron-right"></i>'
+          ],
+          autoplay: false,
+          autoplayHoverPause: false,
+          responsive: {
+            0: {
+              items: 2
+            },
+            600: {
+              items: 4
+            },
+            1000: {
+              items: 4
+            }
+          }
+        });
+
+        $(".roma-carousel-wrap.withModal .owl-carousel.roma").owlCarousel({
+          loop: true,
+          margin: 10,
+          nav: true,
+          rewind: true,
+          center: true,
+          navText: [
+              '<i class="fal fa-chevron-left"></i>',
+            '<i class="fal fa-chevron-right"></i>'
+          ],
+          autoplay: false,
+          autoplayHoverPause: false,
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 1
+            },
+            1000: {
+              items: 1
+            }
+          }
+        });
+
+        
+
+        //$("#divMobileImageList").data('owl.carousel').options.freeDrag = true;
+        //$("#divMobileImageList").trigger("refresh.owl.carousel");
+        
+        //$("#divMobileImageList").trigger('remove.owl.carousel', [0]);
+        //$("#divMobileImageList").trigger("refresh.owl.carousel");
+
+
+
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = $(".myBtn");
+        var imgMobil = $(".myBtn");
+        if(img.length === 0){
+          $(".roma-carousel-wrap").remove();
+        };
+        
+        for(let i = 0; i < img.length; i++){
+          var modalImg = document.getElementById("img01");
+          var captionText = document.getElementById("caption");
+          
+          img[i].onclick = function(){
+            modal.style.display = "block";
+            $(".roma-carousel-wrap.withModal .owl-carousel").trigger("to.owl.carousel", i);
+            /*captionText.innerHTML = this.alt;*/
+          };
+        };
+
+        for(let i = 0; i < imgMobil.length; i++){
+          var modalImg = document.getElementById("img01");
+          var captionText = document.getElementById("caption");
+          
+          imgMobil[i].onclick = function(){
+            modal.style.display = "block";
+            $(".roma-carousel-wrap.withModal .owl-carousel").trigger("to.owl.carousel", i);
+            /*captionText.innerHTML = this.alt;*/
+          };
+        };
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        closeModal = function() {
+          
+          var senderElementName = event.target.id;
+          if(senderElementName === 'myModal') {
+            modal.style.display = "none";
+            console.log("bune")
+          } else {
+            console.log("nebu")
+          }
+        };
+
+        closeModalX = function() {
+            modal.style.display = "none";
+        };
+
+        var div = $(".myBtn");
+        div.addEventListener("mousedown", function() {
+          window.addEventListener("mousemove", drag);
+          window.addEventListener("mouseup", lift);
+          var didDrag = false;
+          function drag() {
+            //when the person drags their mouse while holding the mouse button down
+            didDrag = true;
+            div.innerHTML = "drag"
+          }
+          function lift() {
+            //when the person lifts mouse
+            if (!didDrag) {
+              //if the person didn't drag
+              div.innerHTML = "click";
+            } else div.innerHTML = "drag";
+            //delete event listeners so that it doesn't keep saying drag
+            window.removeEventListener("mousemove", drag)
+            window.removeEventListener("mouseup", this)
+          }
+        })
+
+        $(".list-group.kategori.kategori-59 li ul li ul li a")[10].innerHTML;
+        
+      </script>
+</body>
+</html>
+
+

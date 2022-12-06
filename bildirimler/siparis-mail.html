@@ -1,0 +1,178 @@
+<table align="center" cellpadding="0" width="600">
+    <tbody>
+        <tr>
+            <td align="center" height="140">
+                <a href="https://www.romanodizayn.com" target="_blank"><img src="https://www.romanodizayn.com/Uploads/EditorUploads/romano-logo.png"style="width:60%;"></a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="text-align:center;font-family:Tahoma,Arial;font-size:16px;line-height:24px;color:#1c1c1c">
+                <strong>Siparişiniz başarılı şekilde alınmıştır.</strong><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="text-align:center;font-family:Tahoma,Arial;font-size:14px;line-height:22px;color:#545454">Sipariş bilgileriniz aşağıdaki gibidir.<br><br>
+                Sipariş Numarası : {SIPARISNO}<br>
+                <br>
+                Kargo Firması ve Süresi: Romano Sevkiyat - 30 İş Günü<br><br>  
+                <div class="tahminiTeslimMail"></div>         
+</td>
+        </tr>
+        <tr>
+            <td>
+                <table width="600" style="background:#1c1c1c;color:#fff;font-family:Verdana,Arial;font-size:14px;font-weight:bold;margin-bottom:10px;padding:6px">
+                    <tbody>
+                        <tr>
+                            <td width="50%">Alıcı Bilgileri</td>
+                            <td width="50%">Fatura Bilgileri</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="600" style="font-family:Verdana,Arial;font-size:14px;line-height:22px">
+                    <tbody>
+                        <tr>
+                            <td width="50%">Adı Soyadı : {TESLIMATALICI}</td>
+                            <td width="50%">Adı Soyadı :	{FATURAADI}</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">Telefon : {TESLIMATTELEFON}</td>
+                            <td width="50%">Telefon : {FATURATEL}</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">Adres:	{TESLIMATADRES}</td>
+                            <td width="50%">Adres:	{FATURAADRES}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="600">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table width="600" style="background:#1c1c1c;color:#fff;font-family:Verdana,Arial;font-size:14px;font-weight:bold;margin-bottom:0px;margin-top:10px;padding:6px ">
+                                    <tbody>
+                                        <tr>
+                                            <td width="1%"></td>
+                                            <td width="45%">Ürün Adı</td>
+                                            <td width="10%">Adet</td>
+                                            <td width="20%">Toplam Ürün Tutarı</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="600" align="center" cellspacing="4" cellpadding="0" border="0">
+                                    <tbody>
+                                        {URUNKALEMLERI}
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" bgcolor="#1c1c1c" height="8"></td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="text-align:center;font-family:Tahoma,Arial;font-size:12px;line-height:24px;color:#1c1c1c">Bu e-mail otomatik oluşturulmuştur. Lütfen cevap vermeyiniz.<br>
+                                &nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>        
+    </tbody>
+</table>
+
+{SIPARISSOZLESME}
+
+<script>
+    ///////PLANLANAN TESLİMAT ARALIĞI////////
+    /////////////////////////////////////////
+    function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+    };
+
+    function addWorkDays(startDate, days) {
+    if(isNaN(days)) {
+        console.log("Value provided for \"days\" was not a number");
+        return
+    }
+    if(!(startDate instanceof Date)) {
+        console.log("Value provided for \"startDate\" was not a Date object");
+        return
+    }
+    // Get the day of the week as a number (0 = Sunday, 1 = Monday, .... 6 = Saturday)
+    var dow = startDate.getDay();
+    var daysToAdd = parseInt(days);
+    // If the current day is Sunday add one day
+    if (dow == 0)
+        daysToAdd++;
+    // If the start date plus the additional days falls on or after the closest Saturday calculate weekends
+    if (dow + daysToAdd >= 6) {
+        //Subtract days in current working week from work days
+        var remainingWorkDays = daysToAdd - (5 - dow);
+        //Add current working week's weekend
+        daysToAdd += 2;
+        if (remainingWorkDays > 5) {
+            //Add two days for each working week by calculating how many weeks are included
+            daysToAdd += 2 * Math.floor(remainingWorkDays / 5);
+            //Exclude final weekend if remainingWorkDays resolves to an exact number of weeks
+            if (remainingWorkDays % 5 == 0)
+                daysToAdd -= 2;
+        }
+    }
+    startDate.setDate(startDate.getDate() + daysToAdd);
+    return startDate;
+    };
+
+    const months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+
+    const todayDate = new Date();
+    
+    let saat = todayDate.getHours();
+    let dakika = todayDate.getMinutes();
+    let saniye = todayDate.getSeconds();
+
+    let zaman = saat + "." + dakika + "." + saniye;
+
+    const teslimBaslangicHizli = todayDate;
+    let teslimBaslangicDayHizli = teslimBaslangicHizli.getDate();
+    let teslimBaslangicMonthHizli = months[teslimBaslangicHizli.getMonth()];
+    let teslimBaslangicYearHizli = teslimBaslangicHizli.getFullYear();
+
+    const teslimBitisHizli = addDays(teslimBaslangicHizli, 7);
+    let teslimBitisDayHizli = teslimBitisHizli.getDate();
+    let teslimBitisMonthHizli = months[teslimBitisHizli.getMonth()];
+    let teslimBitisYearHizli = teslimBitisHizli.getFullYear();
+
+    let teslimBaslangicDateHizli = teslimBaslangicDayHizli + " " + teslimBaslangicMonthHizli;
+    let teslimBitisDateHizli = teslimBitisDayHizli + " " + teslimBitisMonthHizli;
+
+    const teslimBaslangic = addWorkDays(todayDate, 33);
+    let teslimBaslangicDay = teslimBaslangic.getDate();
+    let teslimBaslangicMonth = months[teslimBaslangic.getMonth()];
+    let teslimBaslangicYear = teslimBaslangic.getFullYear();
+
+    const teslimBitis = addDays(teslimBaslangic, 7);
+    let teslimBitisDay = teslimBitis.getDate();
+    let teslimBitisMonth = months[teslimBitis.getMonth()];
+    let teslimBitisYear = teslimBitis.getFullYear();
+
+    let teslimBaslangicDate = teslimBaslangicDay + " " + teslimBaslangicMonth;
+    let teslimBitisDate = teslimBitisDay + " " + teslimBitisMonth;
+
+    var tahminiTeslim = $(".tahminiTeslimMail");
+    tahminiTeslim[0].innerHTML = "<a href='/teslimat' target='_blank' style='color:#000; text-decoration: underline;'>Planlanan Teslimat: " + teslimBaslangicDate + " - " + teslimBitisDate + " / " + zaman + "</a>";
+    ////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+</script>
